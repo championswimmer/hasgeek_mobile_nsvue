@@ -1,4 +1,7 @@
 import Vue from 'nativescript-vue';
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
+
+Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
 
 import router from './router';
 
