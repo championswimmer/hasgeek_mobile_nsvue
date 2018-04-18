@@ -1,0 +1,8 @@
+{
+  "android": {
+    "v8Flags": "--expose_gc"
+  },
+  "main": "app.js",
+  "name": "hasgeek_mobile_nsvue",
+  "version": "0.1.0"
+}

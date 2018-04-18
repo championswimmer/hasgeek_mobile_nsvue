@@ -1,0 +1,20 @@
+{
+	"name": "hasgeek_mobile_nsvue",
+	"description": "HasGeek Mobile App",
+	"license": "MIT",
+	"readme": "HasGeek",
+	"nativescript": {
+		"id": "com.hasgeek.app"
+	},
+	"dependencies": {
+		"nativescript-theme-core": "^1.0.4",
+		"nativescript-vue": "^1.3.1",
+		"tns-core-modules": "~3.4.1"
+	},
+	"devDependencies": {
+		"babel-traverse": "6.26.0",
+		"babel-types": "6.26.0",
+		"babylon": "6.18.0",
+		"lazy": "1.0.11"
+	}
+}
