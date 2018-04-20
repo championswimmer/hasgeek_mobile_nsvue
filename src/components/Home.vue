@@ -31,7 +31,7 @@
 
   </Page>
 </template>
-<script>
+<script ios>
   export default {
 
     mounted: function () {
@@ -52,16 +52,14 @@
 
   }
 </script>
-<style scoped>
+<style scoped lang="scss">
   #drawer > StackLayout {
     height: 100%;
   }
   .sidedrawer-list-item {
     padding-left: 10;
   }
-
   #drawer Label {
-    font-family: sans-serif-thin;
     padding-left: 20;
     padding-top: 10;
   }
