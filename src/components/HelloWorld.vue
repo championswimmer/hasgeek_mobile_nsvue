@@ -1,7 +1,7 @@
 <template>
   <Page class="page">
     <ActionBar class="action-bar" title="Hello world">
-      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
+      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.pop()"/>
     </ActionBar>
 
     <StackLayout class="hello-world">
@@ -15,14 +15,13 @@
   </Page>
 </template>
 
-<script>
-  export default {
-    data () {
-      return {
-        surprise: false,
-      };
-    },
-  };
+<script lang="ts">
+  import {Vue, Component} from 'vue-property-decorator'
+
+  @Component
+  export default class HelloWorld extends Vue {
+    surprise: boolean = false
+  }
 </script>
 
 <style scoped>

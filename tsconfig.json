@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es2015",
     "target": "es5",
+    "moduleResolution": "node",
+    "lib": [
+      "dom", "es2015"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "typeRoots": [
       "types"

@@ -1,15 +1,17 @@
-import Vue = require('nativescript-vue')
+import * as Vue from 'nativescript-vue'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
+import {NavigationButton} from 'tns-core-modules/ui/action-bar'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 
 Vue.prototype.$isAndroid = isAndroid;
 Vue.prototype.$isIOS = isIOS;
 
 Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
+Vue.registerElement('NavigationButton', () => NavigationButton)
 
-import router = require('./router')
+import * as router from './router'
 
-import store = require('./store')
+import * as store from './store'
 
 import './styles.scss';
 
@@ -17,9 +19,6 @@ import './styles.scss';
 Vue.config.silent = false;
 
 new Vue({
-
   router,
-
   store,
-
 }).$start();
