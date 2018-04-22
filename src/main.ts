@@ -1,4 +1,4 @@
-import Vue from 'nativescript-vue';
+import Vue = require('nativescript-vue')
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 
@@ -7,9 +7,9 @@ Vue.prototype.$isIOS = isIOS;
 
 Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
 
-import router from './router';
+import router = require('./router')
 
-import store from './store';
+import store = require('./store')
 
 import './styles.scss';
 
