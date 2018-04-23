@@ -12,12 +12,13 @@
     "sourceMap": true,
     "typeRoots": [
       "types"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "compileOnSave": false,
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules",
     "dist",

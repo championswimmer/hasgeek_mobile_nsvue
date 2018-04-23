@@ -11,6 +11,13 @@ declare module 'nativescript-vue' {
 		 * @param resolver  function to register the element
 		 */
 		static registerElement(elementName: string, resolver: (...any) => any);
+		$isAndroid: boolean
+		$isIOS: boolean
+
+    /**
+		 * Starts nativescript application.start() method
+     */
+    $start(): void
 	}
 
 	export = NativeScriptVue;

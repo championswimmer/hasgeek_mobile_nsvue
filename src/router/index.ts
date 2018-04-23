@@ -1,11 +1,12 @@
-import Vue from 'nativescript-vue';
+import Vue from 'nativescript-vue'
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Home from '../components/Home';
-import HelloWorld from '../components/HelloWorld';
-import Counter from '../components/Counter';
+import Home from '../components/Home.vue';
+import HelloWorld from '../components/HelloWorld.vue';
+import Counter from '../components/Counter.vue';
+import Events from '../components/pages/Events.vue';
 
 const router = new VueRouter({
   pageRouting: true,
@@ -16,6 +17,15 @@ const router = new VueRouter({
       meta: {
         title: 'Home',
       },
+      children: [
+        {
+          path: 'events',
+          component: Events,
+          meta: {
+            title: 'Events'
+          }
+        }
+      ]
     },
     {
       path: '/hello',
@@ -37,4 +47,4 @@ const router = new VueRouter({
 
 router.replace('/home');
 
-module.exports = router;
+export default router

@@ -18,14 +18,13 @@
       <StackLayout class="drawer-content"  background="white" ~drawerContent>
         <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
         <StackLayout >
-          <Label class="sidedrawer-list-item">Events</Label>
+          <Label class="sidedrawer-list-item" @tap="$router.push('/home/events')" >Events</Label>
           <Label class="sidedrawer-list-item">Conferences</Label>
           <Label class="sidedrawer-list-item">Talkfunnel</Label>
         </StackLayout>
       </StackLayout>
       <StackLayout ~mainContent>
-        <Button class="btn btn-primary" @tap="$router.push('/counter')">Counter</Button>
-        <Button class="btn btn-primary" @tap="$router.push('/hello')">Hello World</Button>
+        <router-view></router-view>
       </StackLayout>
     </RadSideDrawer>
 
