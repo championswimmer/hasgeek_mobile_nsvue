@@ -18,21 +18,20 @@
       <StackLayout class="drawer-content"  background="white" ~drawerContent>
         <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
         <StackLayout >
-          <Label class="sidedrawer-list-item" @tap="$router.push('/home/events')" >Events</Label>
+          <Label class="sidedrawer-list-item" @tap="$router.push('/events')" >Events</Label>
           <Label class="sidedrawer-list-item">Conferences</Label>
           <Label class="sidedrawer-list-item">Talkfunnel</Label>
         </StackLayout>
       </StackLayout>
       <StackLayout ~mainContent>
-        <router-view></router-view>
       </StackLayout>
     </RadSideDrawer>
 
   </Page>
 </template>
 <script ios>
+  const Events = require('./pages/Events').default
   export default {
-
     mounted: function () {
       // Add shadow to iOS Drawer
       if(this.$refs.drawer._nativeView.ios)  {
@@ -51,7 +50,7 @@
 
   }
 </script>
-<style scoped lang="scss">
+<style lang="scss">
   #drawer > StackLayout {
     height: 100%;
   }

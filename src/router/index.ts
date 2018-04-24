@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue'
-import VueRouter from 'vue-router';
+import VueRouter, {RouterOptions} from 'vue-router'
 
 Vue.use(VueRouter);
 
@@ -8,7 +8,7 @@ import HelloWorld from '../components/HelloWorld.vue';
 import Counter from '../components/Counter.vue';
 import Events from '../components/pages/Events.vue';
 
-const router = new VueRouter({
+const router = new VueRouter(<RouterOptions>{
   pageRouting: true,
   routes: [
     {
@@ -17,15 +17,13 @@ const router = new VueRouter({
       meta: {
         title: 'Home',
       },
-      children: [
-        {
-          path: 'events',
-          component: Events,
-          meta: {
-            title: 'Events'
-          }
-        }
-      ]
+    },
+    {
+      path: '/events',
+      component: Events,
+      meta: {
+        title: 'Events'
+      }
     },
     {
       path: '/hello',

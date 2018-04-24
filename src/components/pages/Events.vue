@@ -1,9 +1,7 @@
 <template>
-    <Page xmlns="http://schemas.nativescript.org/tns.xsd">
-        <StackLayout>
-            <Label>TEXT</Label>
-        </StackLayout>
-    </Page>
+    <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
+        <Label>TEXT</Label>
+    </StackLayout>
 </template>
 
 <script lang="ts">
