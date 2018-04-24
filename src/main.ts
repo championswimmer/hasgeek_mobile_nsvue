@@ -1,7 +1,7 @@
 import Vue from 'nativescript-vue'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
-import Home from './components/Home.vue'
+import App from './App.vue'
 
 Vue.prototype.$isAndroid = isAndroid;
 Vue.prototype.$isIOS = isIOS;
@@ -19,5 +19,5 @@ Vue.config.silent = false;
 new Vue({
   router,
   store: <Store<any>>store,
-  render: h => h(Home)
+  render: h => h(App)
 }).$start();

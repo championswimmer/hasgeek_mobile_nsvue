@@ -7,6 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-plugin');
 const NativeScriptVueExternals = require('nativescript-vue-externals');
 const NativeScriptVueTarget = require('nativescript-vue-target');
+const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 // Prepare NativeScript application from template (if necessary)
 require('./prepare')();
@@ -81,7 +82,7 @@ const config = (platform, launchArgs) => {
               css: cssLoader,
               scss: scssLoader,
             },
-            esModule: false
+            esModule: true
           },
         },
       ],
@@ -121,10 +122,12 @@ const config = (platform, launchArgs) => {
       }),
 
       // Minify JavaScript code
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false},
-        output: {comments: false},
-      }),
+      // new UglifyJSWebpackPlugin({
+      //   parallel: true,
+      //   uglifyOptions: {
+      //     ecma: 5
+      //   }
+      // }),
 
       // Copy src/assets/**/* to dist/
       new CopyWebpackPlugin([

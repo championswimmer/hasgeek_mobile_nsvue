@@ -1,0 +1,17 @@
+<template>
+  <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
+    <Label :text="message"></Label>
+    <TextView v-model="message"></TextView>
+  </StackLayout>
+
+</template>
+<script lang="ts">
+  import {ComponentOptions} from 'vue'
+  import Vue from 'vue'
+
+  export default <ComponentOptions<Vue>>{
+    data() {return {
+      message: "THIS IS HOME PAGE"
+    }}
+  }
+</script>

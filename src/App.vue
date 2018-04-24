@@ -2,29 +2,29 @@
   <Page class="page">
     <ActionBar android.systemIcon="ic_menu_back" class="action-bar" title="Home">
       <NavigationButton
-              v-if="$isAndroid"
-              text="Go Back"
-              icon="res://ic_menu_white_24dp"
-              @tap="$refs.drawer.nativeView.showDrawer()"/>
+          v-if="$isAndroid"
+          text="Go Back"
+          icon="res://ic_menu_white_24dp"
+          @tap="$refs.drawer.nativeView.showDrawer()"/>
       <ActionItem
-              v-else
-              text="Menu"
-              ios.position="left"
-              icon="res://ic_menu"
-              @tap="$refs.drawer.nativeView.showDrawer()" />
+          v-else
+          text="Menu"
+          ios.position="left"
+          icon="res://ic_menu"
+          @tap="$refs.drawer.nativeView.showDrawer()"/>
     </ActionBar>
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
-      <StackLayout class="drawer-content"  background="white" ~drawerContent>
+      <StackLayout class="drawer-content" background="white" ~drawerContent>
         <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
-        <StackLayout >
-          <Label class="sidedrawer-list-item" @tap="$router.push('/home/events')" >Events</Label>
+        <StackLayout>
+          <Label class="sidedrawer-list-item" @tap="goToPage('events')">Events</Label>
           <Label class="sidedrawer-list-item">Conferences</Label>
           <Label class="sidedrawer-list-item">Talkfunnel</Label>
         </StackLayout>
       </StackLayout>
       <StackLayout ~mainContent>
-        <router-view></router-view>
+        <router-view/>
       </StackLayout>
     </RadSideDrawer>
 
@@ -32,6 +32,12 @@
 </template>
 <script>
   export default {
+    methods: {
+      goToPage(page) {
+        this.$router.push(page)
+        this.$refs.drawer.nativeView.closeDrawer()
+      }
+    },
     mounted () {
       // Add shadow to iOS Drawer
       let _drawer = this.$refs.drawer

@@ -6,7 +6,9 @@
     "lib": [
       "dom", "es2015"
     ],
-    "esModuleInterop": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -19,6 +21,7 @@
       "@/*": ["src/*"]
     }
   },
+  "esModuleInterop": true,
   "compileOnSave": false,
   "exclude": [
     "node_modules",
