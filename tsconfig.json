@@ -6,6 +6,7 @@
     "lib": [
       "dom", "es2015"
     ],
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

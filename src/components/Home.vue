@@ -18,24 +18,25 @@
       <StackLayout class="drawer-content"  background="white" ~drawerContent>
         <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
         <StackLayout >
-          <Label class="sidedrawer-list-item" @tap="$router.push('/events')" >Events</Label>
+          <Label class="sidedrawer-list-item" @tap="$router.push('/home/events')" >Events</Label>
           <Label class="sidedrawer-list-item">Conferences</Label>
           <Label class="sidedrawer-list-item">Talkfunnel</Label>
         </StackLayout>
       </StackLayout>
       <StackLayout ~mainContent>
+        <router-view></router-view>
       </StackLayout>
     </RadSideDrawer>
 
   </Page>
 </template>
-<script ios>
-  const Events = require('./pages/Events').default
+<script>
   export default {
-    mounted: function () {
+    mounted () {
       // Add shadow to iOS Drawer
-      if(this.$refs.drawer._nativeView.ios)  {
-        const ios = this.$refs.drawer._nativeView.ios
+      let _drawer = this.$refs.drawer
+      if(_drawer._nativeView.ios)  {
+        const ios = _drawer._nativeView.ios
         // .. but if the menu is drawn 'above' the hostview, do this:
         ios.defaultSideDrawer.style.shadowMode = 2; // TKSideDrawerShadowMode.SideDrawer;
         // if you have shadowMode = 2, then you can add a little dim to the lower layer to add some depth. Keep it subtle though:

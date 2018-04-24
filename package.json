@@ -5,6 +5,7 @@
   "author": "Arnav Gupta <arnav@codingblocks.com>",
   "license": "MIT",
   "scripts": {
+    "prepare": "webpack --watch --env.tnsAction prepare",
     "build": "webpack --env.tnsAction build",
     "build:android": "npm run build -- --env.android",
     "build:ios": "npm run build -- --env.ios",
