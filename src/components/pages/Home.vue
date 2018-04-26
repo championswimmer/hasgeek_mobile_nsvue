@@ -9,7 +9,7 @@
   import {ComponentOptions} from 'vue'
   import Vue from 'vue'
 
-  export default <ComponentOptions<Vue>>{
+  export default <ComponentOptions<any>>{
     data() {return {
       message: "THIS IS HOME PAGE"
     }}
