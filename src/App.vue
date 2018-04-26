@@ -1,5 +1,5 @@
-<template>
-  <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
+<template xmlns="http://schemas.nativescript.org/tns.xsd">
+  <Page class="page">
     <ActionBar android.systemIcon="ic_menu_back" class="action-bar" title="Home">
       <NavigationButton
           v-if="$isAndroid"

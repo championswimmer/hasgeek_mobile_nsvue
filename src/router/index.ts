@@ -3,8 +3,8 @@ import VueRouter, {RouterOptions} from 'vue-router'
 
 Vue.use(VueRouter);
 
-import {default as Home} from '../components/pages/Home.vue';
-import Events from '../components/pages/Events.vue';
+import {default as Home} from '../pages/Home/Home.vue';
+import Events from '../pages/Events/Events.vue';
 
 const router = new VueRouter(<RouterOptions>{
   routes: [

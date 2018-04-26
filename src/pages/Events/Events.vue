@@ -7,8 +7,13 @@
 </template>
 <script lang="ts">
   import {getJSON} from 'tns-core-modules/http'
+  import Vue, {ComponentOptions} from 'vue'
+  interface IEvent extends Vue {
+    events: Array<any>
+    loadEvents(): never
+  }
 
-  export default {
+  export default <ComponentOptions<IEvent>>{
     data() {
       return {
         wow: 'OMGWOW',
@@ -17,15 +22,14 @@
     },
     methods: {
       loadEvents() {
+        getJSON('https://hasgeek.github.io/events/api/events.json').then((response: any) => {
+          this.events = response.events
+          // this.$refs.eventList.refresh()
+        })
       }
     },
     mounted() {
-      getJSON('https://hasgeek.github.io/events/api/events.json').then((response: any) => {
-        this.events = response.events
-        console.log(this.events)
-        console.log(this.$refs.eventList)
-        // this.$refs.eventList.refresh()
-      })
+      this.loadEvents()
     }
   }
 </script>
