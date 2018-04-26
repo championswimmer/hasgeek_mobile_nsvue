@@ -1,9 +1,7 @@
 import Counter from './Counter'
 import Vue, {ComponentOptions} from 'vue'
-interface AppComponent extends Vue {
-  surprise: boolean
-}
-export default <ComponentOptions<Vue>>{
+
+export default <ComponentOptions<any>>{
   data() {
     return {
       surprise: false,

@@ -1,11 +1,6 @@
 import {ComponentOptions} from 'vue'
-import Vue from 'vue'
 
-interface CounterComponent extends Vue {
-  count: number
-}
-
-export default <ComponentOptions<CounterComponent>>{
+export default <ComponentOptions<any>>{
   data() {
     return {
       count: 42,
