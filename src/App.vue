@@ -1,5 +1,5 @@
 <template>
-  <Page class="page">
+  <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
     <ActionBar android.systemIcon="ic_menu_back" class="action-bar" title="Home">
       <NavigationButton
           v-if="$isAndroid"
@@ -17,11 +17,14 @@
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
       <StackLayout class="drawer-content" background="white" ~drawerContent>
         <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
-        <StackLayout>
-          <Label class="sidedrawer-list-item" @tap="goToPage('events')">Events</Label>
-          <Label class="sidedrawer-list-item">Conferences</Label>
-          <Label class="sidedrawer-list-item">Talkfunnel</Label>
-        </StackLayout>
+        <ListView for="item in topNavItems">
+          <v-template>
+            <StackLayout @tap="goToPage(item.page)" orientation="horizontal" class="sidedrawer-list-group">
+              <Label class="mdi" >{{fonticon(item.icon)}}</Label>
+              <Label :text="item.text"></Label>
+            </StackLayout>
+          </v-template>
+        </ListView>
       </StackLayout>
       <StackLayout ~mainContent>
         <router-view/>
@@ -31,8 +34,19 @@
   </Page>
 </template>
 <script>
+  import {fonticon} from 'nativescript-fonticon'
   export default {
+    data() {return {
+      topNavItems: [
+        {icon: 'mdi-date-range', text: 'Events', page: 'events'},
+        {icon: 'mdi-nature-people', text: 'Conferences', page: 'conferences'}
+      ]
+    }},
     methods: {
+      fonticon(icName) {
+        try {return fonticon(icName)}
+        catch (e) {return ''}
+      },
       goToPage(page) {
         this.$router.push(page)
         this.$refs.drawer.nativeView.closeDrawer()
@@ -61,12 +75,10 @@
   #drawer > StackLayout {
     height: 100%;
   }
-  .sidedrawer-list-item {
-    padding-left: 10;
+  .sidedrawer-list-group {
   }
   #drawer Label {
     padding-left: 20;
     padding-top: 10;
   }
-
 </style>

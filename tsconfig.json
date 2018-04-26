@@ -13,6 +13,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "typeRoots": [
       "types"
     ],
@@ -21,7 +22,6 @@
       "@/*": ["src/*"]
     }
   },
-  "esModuleInterop": true,
   "compileOnSave": false,
   "exclude": [
     "node_modules",
