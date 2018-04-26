@@ -122,12 +122,12 @@ const config = (platform, launchArgs) => {
       }),
 
       // Minify JavaScript code
-      // new UglifyJSWebpackPlugin({
-      //   parallel: true,
-      //   uglifyOptions: {
-      //     ecma: 5
-      //   }
-      // }),
+      new UglifyJSWebpackPlugin({
+        parallel: false,
+        uglifyOptions: {
+          ecma: 5
+        }
+      }),
 
       // Copy src/assets/**/* to dist/
       new CopyWebpackPlugin([
