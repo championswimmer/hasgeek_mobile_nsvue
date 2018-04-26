@@ -1,15 +1,24 @@
 {
-	"description": "NativeScript Application",
-	"license": "SEE LICENSE IN <your-license-filename>",
+	"description": "HasGeek Mobile App",
+	"license": "MIT",
 	"readme": "NativeScript Application",
-	"repository": "<fill-your-repository-here>",
+	"repository": "https://github.com/championswimmer/hasgeek_mobile_nsvue#nativescript-vue-template",
 	"nativescript": {
-		"id": "org.nativescript.hasgeekmobilensvue"
+		"id": "org.nativescript.hasgeekmobilensvue",
+		"tns-ios": {
+			"version": "4.0.1"
+		}
 	},
 	"dependencies": {
 		"nativescript-theme-core": "^1.0.4",
 		"nativescript-vue": "^1.3.1",
-		"tns-core-modules": "^3.4.1"
+		"tns-core-modules": "^3.4.1",
+		"vue": "^2.5.16",
+		"vue-router": "^3.0.1",
+		"vuex": "^3.0.1"
 	},
-	"devDependencies": {}
+	"devDependencies": {
+		"nativescript-dev-typescript": "^0.7.1",
+		"typescript": "^2.8.3"
+	}
 }
