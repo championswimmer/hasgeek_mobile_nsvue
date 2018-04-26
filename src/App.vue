@@ -3,7 +3,7 @@
     <ActionBar android.systemIcon="ic_menu_back" class="action-bar" title="Home">
       <NavigationButton
           v-if="$isAndroid"
-          text="Go Back"
+          text="Menu"
           icon="res://ic_menu_white_24dp"
           @tap="$refs.drawer.nativeView.showDrawer()"/>
       <ActionItem
@@ -76,9 +76,9 @@
     height: 100%;
   }
   .sidedrawer-list-group {
+    padding: 10;
   }
-  #drawer Label {
-    padding-left: 20;
-    padding-top: 10;
+  .sidedrawer-list-group .mdi {
+    padding-right: 20;
   }
 </style>
