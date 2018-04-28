@@ -121,13 +121,13 @@ const config = (platform, launchArgs) => {
         canPrint: false,
       }),
 
-      // Minify JavaScript code
-      new UglifyJSWebpackPlugin({
-        parallel: false,
-        uglifyOptions: {
-          ecma: 5
-        }
-      }),
+      // // Minify JavaScript code
+      // new UglifyJSWebpackPlugin({
+      //   parallel: false,
+      //   uglifyOptions: {
+      //     ecma: 5
+      //   }
+      // }),
 
       // Copy src/assets/**/* to dist/
       new CopyWebpackPlugin([

@@ -1,7 +1,7 @@
 import Vue from 'nativescript-vue';
-import Vuex from 'vuex';
+import Vuex, {Module} from 'vuex'
 
-import counter from './modules/counter';
+import counter from './modules/Counter2';
 
 Vue.use(Vuex);
 
@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-    counter,
+    counter
   },
   // strict: debug,
 });
