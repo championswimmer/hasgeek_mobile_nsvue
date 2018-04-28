@@ -13,7 +13,7 @@ const router = new VueRouter(<RouterOptions>{
       component: Home,
       meta: {
         title: 'Home'
-      }
+      },
     },
     {
       path: '/events',

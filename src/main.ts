@@ -2,7 +2,7 @@ import Vue from 'nativescript-vue'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import router from './router'
-import * as store from './store'
+import store from './store/index'
 
 import './styles.scss';
 import {Store} from 'vuex'
@@ -27,6 +27,6 @@ Vue.config.silent = false;
 
 new Vue({
   router,
-  store: <Store<any>>store,
+  store,
   render: h => h(App)
 }).$start();

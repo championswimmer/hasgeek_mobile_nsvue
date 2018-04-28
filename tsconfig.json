@@ -9,6 +9,7 @@
     "importHelpers": true,
     "noEmitHelpers": true,
     "noImplicitThis": true,
+    "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

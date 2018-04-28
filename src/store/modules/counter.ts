@@ -1,17 +1,22 @@
+import {ActionTree} from 'vuex'
+
+interface CounterState {
+  count: number
+}
 const state = {
   count: 0,
 };
 
 const mutations = {
-  decrement (state) {
+  decrement (state: CounterState) {
     state.count--;
   },
-  increment (state) {
+  increment (state: CounterState) {
     state.count++;
   },
 };
 
-const actions = {
+const actions = <ActionTree<CounterState, any>>{
   increment: ({commit}) => commit('increment'),
   decrement: ({commit}) => commit('decrement'),
 };

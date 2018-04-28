@@ -28,7 +28,7 @@
         })
       }
     },
-    mounted() {
+    mounted(this: IEvent) {
       this.loadEvents()
     }
   }

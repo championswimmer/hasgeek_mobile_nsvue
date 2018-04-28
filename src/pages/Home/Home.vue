@@ -6,12 +6,13 @@
 
 </template>
 <script lang="ts">
-  import {ComponentOptions} from 'vue'
-  import Vue from 'vue'
+  import Vue, {ComponentOptions} from 'vue'
 
   export default <ComponentOptions<any>>{
-    data() {return {
-      message: "THIS IS HOME PAGE"
-    }}
+    data() {
+      return {
+        message: 'THIS IS HOME PAGE'
+      }
+    }
   }
 </script>
