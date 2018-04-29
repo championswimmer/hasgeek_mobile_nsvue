@@ -12,17 +12,20 @@ const router = new VueRouter(<RouterOptions>{
       path: '/home',
       component: Home,
       meta: {
-        title: 'Home'
+        title: 'Home',
+        icon: 'mdi-nature-people'
       },
     },
     {
       path: '/events',
       component: Events,
+      meta: {
+        title: 'Events',
+        icon: 'mdi-date-range'
+      }
     },
     {path: '*', redirect: '/home'}
   ],
 });
-
-router.replace('/home');
 
 export default router

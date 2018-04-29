@@ -10,7 +10,7 @@ const store = new Vuex.Store({
   modules: {
     counter,
     hgapi
-  },
+  }
 });
 
 Vue.prototype.$store = store;

@@ -3,6 +3,7 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import router from './router'
 import store from './store/index'
+import {sync} from 'vuex-router-sync'
 
 import './styles.scss';
 import {Store} from 'vuex'
@@ -24,6 +25,8 @@ Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
 
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;
+sync(store, router)
+router.replace('/home');
 
 new Vue({
   router,

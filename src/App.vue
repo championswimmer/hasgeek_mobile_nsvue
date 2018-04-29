@@ -1,22 +1,22 @@
 <template xmlns="http://schemas.nativescript.org/tns.xsd">
   <Page class="page">
-    <ActionBar android.systemIcon="ic_menu_back" class="action-bar" title="Home">
+    <ActionBar android.systemIcon="ic_menu_back" class="action-bar" :title="appTitle">
       <NavigationButton
           v-if="$isAndroid"
           text="Menu"
           icon="res://ic_menu_white_24dp"
-          @tap="$refs.drawer.nativeView.showDrawer()"/>
+          @tap="$refs.drawer.nativeView.showDrawer()"></NavigationButton>
       <ActionItem
           v-else
           text="Menu"
           ios.position="left"
           icon="res://ic_menu"
-          @tap="$refs.drawer.nativeView.showDrawer()"/>
+          @tap="$refs.drawer.nativeView.showDrawer()"></ActionItem>
     </ActionBar>
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
-      <StackLayout class="drawer-content" background="white" ~drawerContent>
-        <StackLayout class="sidedrawer-header" background="#E27834"></StackLayout>
+      <StackLayout class="drawer-content" ~drawerContent>
+        <StackLayout class="sidedrawer-header"></StackLayout>
         <ListView for="item in topNavItems">
           <v-template>
             <StackLayout @tap="goToPage(item.page)" orientation="horizontal" class="sidedrawer-list-group">
@@ -42,6 +42,15 @@
         {icon: 'mdi-nature-people', text: 'Conferences', page: 'conferences'}
       ]
     }},
+    computed: {
+      appTitle() {
+        return this.$store.state.route &&
+          this.$store.state.route.meta &&
+          this.$store.state.route.meta.title ||
+            'HasGeek'
+
+      }
+    },
     methods: {
       fonticon(icName) {
         try {return fonticon(icName)}
@@ -72,8 +81,15 @@
   }
 </script>
 <style lang="scss">
+  @import "styles/hasgeek";
+  .drawer-content {
+    background-color: white;
+  }
   #drawer > StackLayout {
     height: 100%;
+  }
+  .sidedrawer-header {
+    background-color: $hg-orange;
   }
   .sidedrawer-list-group {
     padding: 10;
