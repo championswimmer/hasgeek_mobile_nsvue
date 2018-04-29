@@ -27,7 +27,7 @@ export class VuexModule<S=ThisType<S>, R=any> implements Mod<S,R> {
 
   modules?: ModuleTree<any>
   namespaced?: boolean
-  getters?: GetterTree<S, any>
+  getters?: GetterTree<S, R>
   state?: S | (() => S)
   mutations?: MutationTree<S>
   actions?: ActionTree<S, R>
@@ -61,8 +61,6 @@ export function Action<T> (params: ActionDecoratorParams) {
 
   return function (target: T, key: string | symbol, descriptor: TypedPropertyDescriptor<Function>) {
     const module = target.constructor as Mod<T,any>
-    console.log('----------')
-    console.log(module)
     if (!module.actions) {
       module.actions = {}
     }
