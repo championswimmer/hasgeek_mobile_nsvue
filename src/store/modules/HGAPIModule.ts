@@ -1,11 +1,18 @@
-import {Action, Mutation, Module, VuexModule} from '../lib/vuex-ts-helpers'
+import {Action, Mutation, Module, VuexModule, MutationAction} from 'vuex-module-decorators'
 import {ConferencesEntity, EventsEntity, Response} from '@/models/HasGeekAPI'
 import {getJSON} from 'tns-core-modules/http'
+import {ActionContext} from 'vuex'
 
 @Module
 export default class HGAPIModule extends VuexModule {
   conferences: Array<ConferencesEntity> = []
   events: Array<EventsEntity> = []
+
+  @MutationAction({mutate: ['events', 'conferences']})
+  async fetchAll () {
+    const response: Response = await getJSON('https://hasgeek.github.io/events/api/events.json')
+    return response
+  }
 
   @Mutation updateConferences(confs: Array<ConferencesEntity>) {
     this.conferences.splice(0, this.conferences.length, ...confs)

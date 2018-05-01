@@ -6,32 +6,18 @@
   </ListView>
 </template>
 <script lang="ts">
-  import {getJSON} from 'tns-core-modules/http'
-  import Vue, {ComponentOptions} from 'vue'
-  import {EventsEntity} from '../../models/HasGeekAPI'
-  import store from '../../store'
-  interface IEvent extends Vue {
-    events: Array<EventsEntity>
-    loadEvents(): never
-  }
-
-  export default <ComponentOptions<IEvent>>{
-    data() {
-      return {
-        wow: 'OMGWOW'
-      }
-    },
-    computed: {
-      events () {
-        return store.state.hgapi.events
-      }
-    },
-    methods: {
-      loadEvents() {
-        store.dispatch('fetchEvents')
-      }
-    },
-    mounted(this: IEvent) {
+  import {Vue, Component} from 'vue-property-decorator'
+  import {EventsEntity} from '@/models/HasGeekAPI'
+  import store from '@/store'
+  @Component
+  export default class Events extends Vue {
+    get events(): EventsEntity[] {
+      return store.state.hgapi.events
+    }
+    loadEvents() {
+      store.dispatch('fetchAll')
+    }
+    mounted() {
       this.loadEvents()
     }
   }

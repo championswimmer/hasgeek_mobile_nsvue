@@ -7,10 +7,10 @@
 
 </template>
 <script lang="ts">
-  import Vue, {ComponentOptions} from 'vue'
-  import store from '../../store'
+  import Vue from 'nativescript-vue'
+  import store from '@/store'
 
-  export default <ComponentOptions<any>>{
+  export default Vue.extend({
     data() {
       return {
         message: 'THIS IS HOME PAGE'
@@ -26,5 +26,5 @@
         store.dispatch('incr')
       }
     }
-  }
+  })
 </script>

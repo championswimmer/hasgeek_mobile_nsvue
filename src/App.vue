@@ -38,6 +38,7 @@
   export default {
     data() {return {
       topNavItems: [
+        {icon: 'mdi-home', text: 'Home', page: 'home'},
         {icon: 'mdi-date-range', text: 'Events', page: 'events'},
         {icon: 'mdi-nature-people', text: 'Conferences', page: 'conferences'}
       ]

@@ -1,4 +1,4 @@
-import {Action, Mutation, Module, VuexModule} from '../lib/vuex-ts-helpers'
+import {Action, Mutation, Module, VuexModule} from 'vuex-module-decorators'
 
 
 @Module

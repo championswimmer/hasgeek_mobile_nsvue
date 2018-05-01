@@ -55,6 +55,7 @@
     "vue-property-decorator": "^6.0.0",
     "vue-template-compiler": "^2.5.16",
     "vuex-class": "^0.3.0",
+    "vuex-module-decorators": "^0.1.4",
     "webpack": "^3.11.0",
     "webpack-synchronizable-shell-plugin": "0.0.7",
     "winston-color": "^1.0.0"

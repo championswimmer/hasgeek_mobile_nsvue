@@ -7,12 +7,12 @@ import hgapi from './modules/HGAPIModule'
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+  state: {},
   modules: {
     counter,
     hgapi
   }
 });
-
 Vue.prototype.$store = store;
 
 export default store

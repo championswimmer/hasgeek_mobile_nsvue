@@ -89,6 +89,10 @@ const config = (platform, launchArgs) => {
     },
 
     resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        'vue$': 'nativescript-vue'
+      },
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',

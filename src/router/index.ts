@@ -3,8 +3,9 @@ import VueRouter, {RouterOptions} from 'vue-router'
 
 Vue.use(VueRouter);
 
-import {default as Home} from '../pages/Home/Home.vue';
+import  Home from '../pages/Home/Home.vue';
 import Events from '../pages/Events/Events.vue';
+import Conferences from '../pages/Conferences/Conferences.vue'
 
 const router = new VueRouter(<RouterOptions>{
   routes: [
@@ -13,7 +14,7 @@ const router = new VueRouter(<RouterOptions>{
       component: Home,
       meta: {
         title: 'Home',
-        icon: 'mdi-nature-people'
+        icon: 'mdi-home'
       },
     },
     {
@@ -22,6 +23,14 @@ const router = new VueRouter(<RouterOptions>{
       meta: {
         title: 'Events',
         icon: 'mdi-date-range'
+      }
+    },
+    {
+      path: '/conferences',
+      component: Conferences,
+      meta: {
+        title: 'Conferences',
+        icon: 'mdi-nature-people'
       }
     },
     {path: '*', redirect: '/home'}
