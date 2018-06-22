@@ -2868,6 +2868,10 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+nativescript-cardview@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/nativescript-cardview/-/nativescript-cardview-3.1.0.tgz#5729d36f6d7ea244877bd151ba56370980303b08"
+
 nativescript-fonticon@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/nativescript-fonticon/-/nativescript-fonticon-1.1.1.tgz#1ff981e15dbb4382efeee278739217b931c11dcc"
@@ -2880,7 +2884,7 @@ nativescript-ui-core@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/nativescript-ui-core/-/nativescript-ui-core-1.0.1.tgz#4767717b926ad61d250a3a80852a6058816e7dd9"
 
-nativescript-ui-sidedrawer@^3.5.2:
+nativescript-ui-sidedrawer@3:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/nativescript-ui-sidedrawer/-/nativescript-ui-sidedrawer-3.5.2.tgz#8ec6f4519a0f98eecfd2c628cc32f86cbb5f9e69"
   dependencies:
@@ -4413,15 +4417,15 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tns-core-modules-widgets@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-3.4.0.tgz#3c1fa7f7f873e8508aa8cb6a866b1d8093279245"
+tns-core-modules-widgets@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-4.1.0.tgz#bfb706fb5f246d2f44e7c652dbe4564fdf9c0261"
 
-tns-core-modules@~3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-3.4.1.tgz#be6882cd04127296e8803eeb10eb7ebfd9afe717"
+tns-core-modules@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-4.1.0.tgz#f838f0e040b9cdef8d361ba7392dfece51762fc2"
   dependencies:
-    tns-core-modules-widgets "3.4.0"
+    tns-core-modules-widgets "4.1.0"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"

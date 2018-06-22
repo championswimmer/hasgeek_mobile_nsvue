@@ -1,17 +1,17 @@
-<template xmlns="http://schemas.nativescript.org/tns.xsd">
-  <Page class="page">
+<template>
+  <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
     <ActionBar android.systemIcon="ic_menu_back" class="action-bar" :title="appTitle">
       <NavigationButton
           v-if="$isAndroid"
           text="Menu"
           icon="res://ic_menu_white_24dp"
-          @tap="$refs.drawer.nativeView.showDrawer()"></NavigationButton>
+          @tap="$refs.drawer.nativeView.toggleDrawerState()"></NavigationButton>
       <ActionItem
           v-else
           text="Menu"
           ios.position="left"
           icon="res://ic_menu"
-          @tap="$refs.drawer.nativeView.showDrawer()"></ActionItem>
+          @tap="$refs.drawer.nativeView.toggleDrawerState()"></ActionItem>
     </ActionBar>
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
@@ -26,7 +26,7 @@
           </v-template>
         </ListView>
       </StackLayout>
-      <StackLayout ~mainContent>
+      <StackLayout class="main-container" ~mainContent>
         <router-view/>
       </StackLayout>
     </RadSideDrawer>
@@ -86,16 +86,18 @@
   .drawer-content {
     background-color: white;
   }
-  #drawer > StackLayout {
-    height: 100%;
+  .drawer-content > ListView {
+    margin-left: -15;
   }
   .sidedrawer-header {
     background-color: $hg-orange;
   }
   .sidedrawer-list-group {
     padding: 10;
+    padding-left: 20;
   }
   .sidedrawer-list-group .mdi {
     padding-right: 20;
   }
+
 </style>

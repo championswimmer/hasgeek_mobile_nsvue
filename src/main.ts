@@ -1,5 +1,6 @@
 import Vue from 'nativescript-vue'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
+import { CardView } from 'nativescript-cardview'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import router from './router'
 import store from './store/index'
@@ -22,6 +23,7 @@ Vue.prototype.$isAndroid = isAndroid;
 Vue.prototype.$isIOS = isIOS;
 
 Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
+Vue.registerElement('CardView', () => CardView)
 
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;

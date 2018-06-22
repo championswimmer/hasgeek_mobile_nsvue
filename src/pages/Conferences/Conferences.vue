@@ -1,5 +1,5 @@
-<template xmlns="http://schemas.nativescript.org/tns.xsd">
-    <StackLayout>
+<template >
+    <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
       <Label>CONFERENCES {{m}}</Label>
       <Button @tap="change">CHANGE</Button>
     </StackLayout>
