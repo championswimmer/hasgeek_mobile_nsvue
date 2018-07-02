@@ -4,7 +4,7 @@
       <v-template>
         <CardView class="event-card" margin="8" elevation="5" radius="1">
           <StackLayout class="event-card-contents">
-            <Label class="title" :text="event.title"></Label>
+            <Label class="title" textWrap="true" :text="event.title"></Label>
             <StackLayout class="details" orientation="horizontal">
               <Label width="50%" class="date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
               <Label width="50%" class="city" :text="event.city"></Label>
