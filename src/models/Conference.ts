@@ -1,9 +1,9 @@
 import {Color} from '@/models/HasGeekAPI'
 import {Entity} from 'typeorm'
-import {Column, PrimaryColumn} from 'typeorm/browser'
+import {BaseEntity, Column, PrimaryColumn} from 'typeorm/browser'
 
 @Entity()
-export default class Conference {
+export default class Conference extends BaseEntity {
 
   @PrimaryColumn()
   id: string;
@@ -35,6 +35,6 @@ export default class Conference {
   @Column()
   blurb: string;
 
-  @Column()
+  @Column({type: 'blob'})
   color?: Color | null;
 }

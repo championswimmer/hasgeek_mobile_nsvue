@@ -14,9 +14,10 @@ createConnection({
   type: 'nativescript',
   logging: true,
   entities: [
-    HG.Event
+    HG.Event, HG.Conference
   ]
-}).then((connection) => connection.synchronize(false))
+}).then((connection) => connection.synchronize(true))
+  .catch(console.error)
 
 const store = new Vuex.Store({
   state: {},
