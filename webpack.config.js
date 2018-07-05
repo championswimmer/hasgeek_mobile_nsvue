@@ -129,6 +129,7 @@ const config = (platform, launchArgs) => {
       // new UglifyJSWebpackPlugin({
       //   parallel: false,
       //   uglifyOptions: {
+      //     mangle: { reserved: [ ...nsWebpack.uglifyMangleExcludes, "TNS_SwipeRefreshListener" ] },
       //     ecma: 5
       //   }
       // }),

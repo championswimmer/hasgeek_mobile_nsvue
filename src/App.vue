@@ -94,7 +94,8 @@
   }
   .sidedrawer-list-group {
     padding: 10;
-    padding-left: 20;
+    padding-left: 30;
+    color: #555555;
   }
   .sidedrawer-list-group .mdi {
     padding-right: 20;

@@ -1,5 +1,6 @@
 import Vue from 'nativescript-vue'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
+import { PullToRefresh } from 'nativescript-pulltorefresh'
 import { CardView } from 'nativescript-cardview'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import router from './router'
@@ -24,6 +25,7 @@ Vue.prototype.$isIOS = isIOS;
 
 Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
 Vue.registerElement('CardView', () => CardView)
+Vue.registerElement('PullToRefresh', () => PullToRefresh)
 
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;
