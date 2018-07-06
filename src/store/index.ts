@@ -16,7 +16,7 @@ createConnection({
   entities: [
     HG.Event, HG.Conference
   ]
-}).then((connection) => connection.synchronize(true))
+}).then((connection) => connection.synchronize(false))
   .catch(console.error)
 
 const store = new Vuex.Store({

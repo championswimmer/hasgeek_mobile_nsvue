@@ -35,6 +35,6 @@ export default class Conference extends BaseEntity {
   @Column()
   blurb: string;
 
-  @Column({type: 'blob'})
+  @Column({type: 'simple-json'})
   color?: Color | null;
 }

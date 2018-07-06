@@ -23,7 +23,6 @@
   })
   export default class Conferences extends Vue {
     get conferences(): HG.Conference[] {
-      store.state.hgapi.conferences.forEach((conf:any) => console.log(JSON.stringify(conf.color)))
       return store.state.hgapi.conferences
     }
     async reloadConferences(pullEvent?: {object: PullToRefresh}) {

@@ -10,7 +10,7 @@ export default class HGAPIModule extends VuexModule {
 
   @MutationAction({mutate: ['events', 'conferences']})
   async fetchAll () {
-    const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/events.json')
+    const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/all.json')
     return response
   }
 
@@ -34,7 +34,7 @@ export default class HGAPIModule extends VuexModule {
   async refreshConferences(): Promise<HG.Conference[]> {
     const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/conferences.json')
     for (let conf of response.conferences) {
-      if (!conf.color) {
+      if (typeof conf.color === 'undefined') {
         conf.color = {
           primary: '#604E6E', primary_dark: '#df5e0e', accent: '#555555'
         }

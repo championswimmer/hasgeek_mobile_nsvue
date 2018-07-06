@@ -2,6 +2,17 @@
 
 > HasGeek Mobile App
 
+## Development Tips
+
+### Database
+
+ * To pull out database and inspect locally (in Android)
+
+    Run following command
+    ```shell
+    adb exec-out run-as package.name cat databases/hasgeek.db > hasgeek.db
+    ```
+
 ## Usage
 
 ``` bash
