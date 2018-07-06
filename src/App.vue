@@ -85,9 +85,9 @@
   @import "styles/hasgeek";
   .drawer-content {
     background-color: white;
-  }
-  .drawer-content > ListView {
-    margin-left: -15;
+    ListView {
+      margin-left: -15;
+    }
   }
   .sidedrawer-header {
     background-color: $hg-orange;
@@ -95,10 +95,11 @@
   .sidedrawer-list-group {
     padding: 10;
     padding-left: 30;
+    font-size: 16pt;
     color: #555555;
-  }
-  .sidedrawer-list-group .mdi {
-    padding-right: 20;
+    .mdi {
+      padding-right: 20;
+    }
   }
 
 </style>

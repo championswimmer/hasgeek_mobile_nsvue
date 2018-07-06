@@ -1,7 +1,7 @@
 <template>
   <CardView  xmlns="http://schemas.nativescript.org/tns.xsd"
-             class="event-card" margin="10" elevation="5" radius="1">
-    <StackLayout class="event-card-contents">
+             class="conference-card" margin="10" elevation="5" radius="1">
+    <StackLayout class="conference-card-contents">
       <Label :style="{backgroundColor: conference.color.primary.toString()}"
              class="title" textWrap="true" :text="conference.title"></Label>
       <StackLayout class="details" orientation="horizontal">
@@ -27,11 +27,11 @@ export default class ConferenceCard extends Vue {
 <style scoped lang="scss">
   @import '../../styles/hasgeek';
   @import "~nativescript-theme-core/scss/variables";
-  .event-card {
+  .conference-card {
     padding: 0;
     background-color: #fff;
   }
-  .event-card-contents {
+  .conference-card-contents {
     padding: 0;
     .title {
       padding: 10;

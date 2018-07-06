@@ -31,12 +31,13 @@ export default class EventCard extends Vue {
   }
   .event-card-contents {
     padding: 10;
+    height: auto;
     .title {
       padding: 5;
       color: $hg-purple;
       font-size: 20pt;
       font-weight: 600;
-      height: 60;
+      height: auto;
     }
     .details {
       padding: 5;
@@ -46,7 +47,7 @@ export default class EventCard extends Vue {
       padding: 5;
       color: $grey-dark;
       font-size: 14pt;
-      min-height: 100;
+      height: auto;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <template >
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
-    <PullToRefresh @refresh="reloadConferences">
-      <ListView id="conference-list" ref="confList" for="conference in conferences">
+    <PullToRefresh id="refresh" @refresh="reloadConferences">
+      <ListView id="conference-list" separatorColor="transparent" ref="confList" for="conference in conferences">
         <v-template>
           <ConferenceCard :conference="conference"></ConferenceCard>
         </v-template>
@@ -45,5 +45,8 @@
   @import "~nativescript-theme-core/scss/variables";
   #conference-list {
     height: 100%;
+  }
+  #refresh {
+    color: $hg-orange;
   }
 </style>
