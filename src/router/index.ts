@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import  Home from '../pages/Home/Home.vue';
 import Events from '../pages/Events/Events.vue';
 import Conferences from '../pages/Conferences/Conferences.vue'
+import Conference from '../pages/Conferences/Conference.vue'
 
 const router = new VueRouter(<RouterOptions>{
   routes: [
@@ -32,6 +33,14 @@ const router = new VueRouter(<RouterOptions>{
         title: 'Conferences',
         icon: 'mdi-nature-people'
       }
+    },
+    {
+      path: '/conferences/:id',
+      component: Conference,
+      meta: {
+        title: 'Conference',
+        icon: 'mdi-nature-people'
+      },
     },
     {path: '*', redirect: '/home'}
   ],

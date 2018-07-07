@@ -3,6 +3,7 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { PullToRefresh } from 'nativescript-pulltorefresh'
 import { CardView } from 'nativescript-cardview'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
+import * as application from 'tns-core-modules/application'
 import router from './router'
 import store from './store/index'
 import {sync} from 'vuex-router-sync'
@@ -11,6 +12,8 @@ import './styles.scss';
 import {Store} from 'vuex'
 import App from './App.vue'
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
+import {ApplicationEventData} from 'tns-core-modules/application'
+import {exit} from 'nativescript-exit'
 
 // Prints all icon classes loaded
 // TNSFontIcon.debug = true;
@@ -37,3 +40,11 @@ new Vue({
   store,
   render: h => h(App)
 }).$start();
+
+/*
+ * Force an exit, instead of trying to remount
+ * FIXME: On upgrade to nativescript-vue 2.x this wont be necessary
+ */
+application.on(application.exitEvent, (args: ApplicationEventData) => {
+  exit()
+})

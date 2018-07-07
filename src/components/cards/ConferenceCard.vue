@@ -3,6 +3,7 @@
              class="conference-card" margin="10" elevation="5" radius="1">
     <StackLayout
         :style="{borderColor: conference.color.primary.toString()}"
+        @tap="goTo(`/conferences/${conference.id}`)"
         class="conference-card-contents">
       <StackLayout
           class="card-header"
@@ -47,6 +48,7 @@ import {Vue, Component, Prop} from 'vue-property-decorator'
 import * as HG from '../../models/HasGeekAPI'
 import {fonticon} from 'nativescript-fonticon'
 import {openUrl} from 'tns-core-modules/utils/utils'
+import router from '../../router'
 
 @Component
 export default class ConferenceCard extends Vue {
@@ -58,6 +60,9 @@ export default class ConferenceCard extends Vue {
   }
   openLink(link: string) {
     openUrl(link)
+  }
+  goTo(path: string) {
+    return router.push(path)
   }
 }
 </script>

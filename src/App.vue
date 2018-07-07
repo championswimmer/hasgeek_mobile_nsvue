@@ -45,9 +45,7 @@
     }},
     computed: {
       appTitle() {
-        return this.$store.state.route &&
-          this.$store.state.route.meta &&
-          this.$store.state.route.meta.title ||
+        return (this.$store.state.route && this.$store.state.route.meta && this.$store.state.route.meta.title) ||
             'HasGeek'
 
       }
@@ -63,6 +61,7 @@
       }
     },
     mounted () {
+
       // Add shadow to iOS Drawer
       let _drawer = this.$refs.drawer
       if(_drawer._nativeView.ios)  {

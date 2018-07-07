@@ -22,7 +22,8 @@
     "tns-core-modules": "^4.1.0",
     "typeorm": "git+https://github.com/championswimmer/typeorm.git#npm_package_nativescript",
     "nativescript-pulltorefresh": "^2.1.1",
-    "vuex-module-decorators": "^0.2.0"
+    "vuex-module-decorators": "^0.2.0",
+    "nativescript-exit": "^1.0.1"
   },
   "devDependencies": {
     "babel-traverse": "6.26.0",

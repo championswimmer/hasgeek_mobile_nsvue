@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "nativescript-cardview": "^3.1.0",
+    "nativescript-exit": "^1.0.1",
     "nativescript-fonticon": "^1.1.1",
     "nativescript-pulltorefresh": "^2.1.1",
     "nativescript-sqlite": "^2.2.1",
