@@ -32,7 +32,7 @@
         pullEvent.object.refreshing = false
       }
     }
-    mounted() {
+    created () {
       if (!this.conferences || this.conferences.length == 0) {
         store.dispatch('loadConferences')
       }
@@ -45,6 +45,7 @@
   @import "~nativescript-theme-core/scss/variables";
   #conference-list {
     height: 100%;
+    separator-color: transparent;
   }
   #refresh {
     color: $hg-orange;

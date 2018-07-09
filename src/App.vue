@@ -64,8 +64,8 @@
 
       // Add shadow to iOS Drawer
       let _drawer = this.$refs.drawer
-      if(_drawer._nativeView.ios)  {
-        const ios = _drawer._nativeView.ios
+      if(_drawer.nativeView.ios)  {
+        const ios = _drawer.nativeView.ios
         // .. but if the menu is drawn 'above' the hostview, do this:
         ios.defaultSideDrawer.style.shadowMode = 2; // TKSideDrawerShadowMode.SideDrawer;
         // if you have shadowMode = 2, then you can add a little dim to the lower layer to add some depth. Keep it subtle though:

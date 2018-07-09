@@ -29,9 +29,9 @@
         pullEvent.object.refreshing = false
       }
     }
-    mounted() {
+    async created() {
       if (!this.events || this.events.length == 0) {
-        store.dispatch('loadEvents')
+        await store.dispatch('loadEvents')
       }
     }
   }
@@ -42,5 +42,6 @@
   @import "~nativescript-theme-core/scss/variables";
   #event-list {
     height: 100%;
+    separator-color: transparent;
   }
 </style>

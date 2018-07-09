@@ -1,15 +1,12 @@
 <template>
   <CardView  xmlns="http://schemas.nativescript.org/tns.xsd"
              class="event-card" margin="10" elevation="5" radius="1">
-    <StackLayout class="event-card-contents">
-      <Label class="title" textWrap="true" :text="event.title"></Label>
-      <StackLayout class="details" orientation="horizontal">
-        <Label width="50%" class="date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
-        <Label width="50%" class="city" :text="event.city"></Label>
-      </StackLayout>
-      <Label class="blurb" :text="event.blurb" textWrap="true"></Label>
-
-    </StackLayout>
+    <GridLayout columns="*,*" rows="auto,auto,auto" class="event-card-contents">
+      <Label row="0" col="0" colSpan="2" class="title" textWrap="true" :text="event.title"></Label>
+      <Label row="1" col="0" class="details date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
+      <Label row="1" col="1" class="details city" :text="event.city"></Label>
+      <Label row="2" col="0" colSpan="2" class="blurb" :text="event.blurb" textWrap="true"></Label>
+    </GridLayout>
   </CardView>
 </template>
 
@@ -49,5 +46,11 @@ export default class EventCard extends Vue {
       font-size: 14pt;
       height: auto;
     }
+  }
+</style>
+
+<style scoped ios>
+  .event-card-contents Label {
+    min-height: 30;
   }
 </style>

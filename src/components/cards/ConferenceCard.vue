@@ -113,3 +113,12 @@ export default class ConferenceCard extends Vue {
     }
   }
 </style>
+
+<style lang="scss" scoped ios>
+  .conference-card {
+
+    .conference-card-contents {
+
+    }
+  }
+</style>
