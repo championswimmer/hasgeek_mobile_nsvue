@@ -5,13 +5,22 @@
           v-if="$isAndroid"
           text="Menu"
           icon="res://ic_menu_white_24dp"
-          @tap="$refs.drawer.nativeView.toggleDrawerState()"></NavigationButton>
+          @tap="$refs.drawer.nativeView.toggleDrawerState()">
+      </NavigationButton>
       <ActionItem
           v-else
           text="Menu"
           ios.position="left"
           icon="res://ic_menu"
-          @tap="$refs.drawer.nativeView.toggleDrawerState()"></ActionItem>
+          @tap="$refs.drawer.nativeView.toggleDrawerState()">
+      </ActionItem>
+      <ios>
+        <ActionItem
+            @tap="goBack"
+            ios.position="right"
+            text="Back">
+        </ActionItem>
+      </ios>
     </ActionBar>
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
@@ -44,6 +53,9 @@
       ]
     }},
     computed: {
+      showBack () {
+        return this.$isIOS && (this.$store.state.route.fullPath.split('/').length > 2)
+      },
       appTitle() {
         return (this.$store.state.route && this.$store.state.route.meta && this.$store.state.route.meta.title) ||
             'HasGeek'
@@ -54,6 +66,9 @@
       fonticon(icName) {
         try {return fonticon(icName)}
         catch (e) {return ''}
+      },
+      goBack() {
+        this.$router.back()
       },
       goToPage(page) {
         this.$router.push(page)

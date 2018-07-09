@@ -1,5 +1,6 @@
 <template>
   <CardView  xmlns="http://schemas.nativescript.org/tns.xsd"
+             ios:class="ios" android:class="android"
              class="conference-card" margin="10" elevation="5" radius="1">
     <StackLayout
         :style="{borderColor: conference.color.primary.toString()}"
@@ -101,6 +102,7 @@ export default class ConferenceCard extends Vue {
       width: 250;
       Button {
         width: auto;
+        min-width: 100;
         padding-left: 10;
         padding-right: 10;
         color: white;
@@ -110,15 +112,6 @@ export default class ConferenceCard extends Vue {
           vertical-align: top;
         }
       }
-    }
-  }
-</style>
-
-<style lang="scss" scoped ios>
-  .conference-card {
-
-    .conference-card-contents {
-
     }
   }
 </style>

@@ -10,7 +10,7 @@
                       @tabSelected="onTabSelected($event)"
                       row="1">
       <BottomNavigationTab title="Info" icon="ic_info"></BottomNavigationTab>
-      <BottomNavigationTab title="Schedule" icon="user_group"></BottomNavigationTab>
+      <BottomNavigationTab title="Schedule" icon="ic_schedule"></BottomNavigationTab>
       <BottomNavigationTab title="Contacts" icon="user_group"></BottomNavigationTab>
     </BottomNavigation>
   </GridLayout>

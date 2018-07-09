@@ -44,4 +44,7 @@
     height: 100%;
     separator-color: transparent;
   }
+  #refresh {
+    color: $hg-orange;
+  }
 </style>
