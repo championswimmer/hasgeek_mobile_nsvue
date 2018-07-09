@@ -1,27 +1,31 @@
 <template>
   <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <ActionBar android.systemIcon="ic_menu_back" class="action-bar" :title="appTitle">
-      <NavigationButton
-          v-if="$isAndroid"
-          text="Menu"
-          icon="res://ic_menu_white_24dp"
-          @tap="$refs.drawer.nativeView.toggleDrawerState()">
-      </NavigationButton>
-      <ActionItem
-          v-else
-          text="Menu"
-          ios.position="left"
-          icon="res://ic_menu"
-          @tap="$refs.drawer.nativeView.toggleDrawerState()">
-      </ActionItem>
-      <ios>
+    <android>
+      <ActionBar android.systemIcon="ic_menu_back" class="action-bar" :title="appTitle">
+        <NavigationButton
+            text="Menu"
+            icon="res://ic_menu_white_24dp"
+            @tap="$refs.drawer.nativeView.toggleDrawerState()">
+        </NavigationButton>
+      </ActionBar>
+    </android>
+    <ios>
+      <ActionBar class="action-bar" :title="appTitle">
         <ActionItem
+            text="Menu"
+            ios.position="left"
+            icon="res://ic_menu"
+            @tap="$refs.drawer.nativeView.toggleDrawerState()">
+        </ActionItem>
+        <ActionItem
+            v-show="showBack"
             @tap="goBack"
             ios.position="right"
             text="Back">
         </ActionItem>
-      </ios>
-    </ActionBar>
+      </ActionBar>
+    </ios>
+
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
       <StackLayout class="drawer-content" ~drawerContent>
