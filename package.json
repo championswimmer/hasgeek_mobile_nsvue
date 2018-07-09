@@ -21,6 +21,7 @@
     "nativescript-cardview": "^3.1.0",
     "nativescript-exit": "^1.0.1",
     "nativescript-fonticon": "^1.1.1",
+    "nativescript-platform-css": "^1.6.6",
     "nativescript-pulltorefresh": "^2.1.1",
     "nativescript-sqlite": "^2.2.1",
     "nativescript-theme-core": "^1.0.4",

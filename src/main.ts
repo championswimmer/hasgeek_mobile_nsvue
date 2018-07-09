@@ -5,6 +5,7 @@ import router from './router'
 import store from './store/index'
 import {sync} from 'vuex-router-sync'
 
+import 'nativescript-platform-css'
 import './styles.scss';
 import {Store} from 'vuex'
 import App from './App.vue'
