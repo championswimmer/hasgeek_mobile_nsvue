@@ -54,7 +54,7 @@
     }},
     computed: {
       showBack () {
-        return this.$isIOS && (this.$store.state.route.fullPath.split('/').length > 2)
+        return (this.$store.state.route.fullPath.split('/').length > 2)
       },
       appTitle() {
         return (this.$store.state.route && this.$store.state.route.meta && this.$store.state.route.meta.title) ||

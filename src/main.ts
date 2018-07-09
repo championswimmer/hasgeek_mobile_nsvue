@@ -10,7 +10,7 @@ import {Store} from 'vuex'
 import App from './App.vue'
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
 import {
-  AndroidActivityBackPressedEventData,
+  AndroidActivityBackPressedEventData, AndroidActivityEventData,
   AndroidApplication,
   ApplicationEventData
 } from 'tns-core-modules/application'
@@ -53,6 +53,16 @@ application.on(application.exitEvent, (args: ApplicationEventData) => {
  * Go back if in a nested route. If top level route, just do what android does
  */
 if (application.android) {
+
+  /*
+   * Force exit even when stopped
+   * FIXME: On upgrade to nativescript-vue 2.x this wont be necessary
+   */
+  application.android.on(
+    AndroidApplication.activityStoppedEvent,
+    (data: AndroidActivityEventData) => exit()
+  )
+
   application.android.on(
     AndroidApplication.activityBackPressedEvent,
     (data: AndroidActivityBackPressedEventData) => {

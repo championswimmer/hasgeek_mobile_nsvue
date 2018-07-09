@@ -102,7 +102,6 @@ export default class ConferenceCard extends Vue {
       width: 250;
       Button {
         width: auto;
-        min-width: 100;
         padding-left: 10;
         padding-right: 10;
         color: white;
