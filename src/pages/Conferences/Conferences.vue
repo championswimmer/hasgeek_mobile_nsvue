@@ -18,6 +18,7 @@
   import store from '@/store'
   import * as HG from '@/models/HasGeekAPI'
   import {PullToRefresh} from 'nativescript-pulltorefresh'
+  import {ListView} from 'tns-core-modules/ui/list-view'
   @Component({
     components: {ConferenceCard}
   })

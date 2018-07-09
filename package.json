@@ -17,6 +17,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "nativescript-bottom-navigation": "^1.3.0",
     "nativescript-cardview": "^3.1.0",
     "nativescript-exit": "^1.0.1",
     "nativescript-fonticon": "^1.1.1",
@@ -62,6 +63,7 @@
     "vue-template-compiler": "^2.5.16",
     "vuex-class": "^0.3.0",
     "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.7.2",
     "webpack-synchronizable-shell-plugin": "0.0.7",
     "winston-color": "^1.0.0"
   }

@@ -84,7 +84,6 @@ export default class ConferenceCard extends Vue {
       .title {
         font-size: 20pt;
         font-weight: 600;
-        height: auto;
       }
     }
     .details {

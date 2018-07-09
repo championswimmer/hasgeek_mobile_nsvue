@@ -8,6 +8,7 @@ const WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-p
 const NativeScriptVueExternals = require('nativescript-vue-externals');
 const NativeScriptVueTarget = require('nativescript-vue-target');
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
+const WebpackNodeExternals = require('webpack-node-externals');
 
 // Prepare NativeScript application from template (if necessary)
 require('./prepare')();
@@ -111,7 +112,13 @@ const config = (platform, launchArgs) => {
       ],
     },
 
-    externals: NativeScriptVueExternals,
+    externals: [
+      WebpackNodeExternals({
+        // whitelist everything that does not have tns-core-modules in its name
+        whitelist: [((moduleName) => (moduleName.indexOf('tns-core-modules') === -1))]
+      }),
+      NativeScriptVueExternals
+    ],
 
     plugins: [
 

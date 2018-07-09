@@ -1,7 +1,4 @@
 import Vue from 'nativescript-vue'
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
-import { PullToRefresh } from 'nativescript-pulltorefresh'
-import { CardView } from 'nativescript-cardview'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import * as application from 'tns-core-modules/application'
 import router from './router'
@@ -12,8 +9,13 @@ import './styles.scss';
 import {Store} from 'vuex'
 import App from './App.vue'
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
-import {ApplicationEventData} from 'tns-core-modules/application'
+import {
+  AndroidActivityBackPressedEventData,
+  AndroidApplication,
+  ApplicationEventData
+} from 'tns-core-modules/application'
 import {exit} from 'nativescript-exit'
+import {registerRequiredElements} from '@/utils/elements'
 
 // Prints all icon classes loaded
 // TNSFontIcon.debug = true;
@@ -26,9 +28,7 @@ Vue.filter('fonticon', fonticon);
 Vue.prototype.$isAndroid = isAndroid;
 Vue.prototype.$isIOS = isIOS;
 
-Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
-Vue.registerElement('CardView', () => CardView)
-Vue.registerElement('PullToRefresh', () => PullToRefresh)
+registerRequiredElements()
 
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;
@@ -48,3 +48,18 @@ new Vue({
 application.on(application.exitEvent, (args: ApplicationEventData) => {
   exit()
 })
+
+/*
+ * Go back if in a nested route. If top level route, just do what android does
+ */
+if (application.android) {
+  application.android.on(
+    AndroidApplication.activityBackPressedEvent,
+    (data: AndroidActivityBackPressedEventData) => {
+      if (router.currentRoute.path.split('/').length > 2) {
+        router.back()
+        data.cancel = true
+      }
+    }
+  )
+}
