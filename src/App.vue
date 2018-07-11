@@ -78,7 +78,6 @@
       }
     },
     mounted () {
-
       // Add shadow to iOS Drawer
       let _drawer = this.$refs.drawer
       if(_drawer.nativeView.ios)  {
@@ -98,6 +97,9 @@
 </script>
 <style lang="scss">
   @import "styles/hasgeek";
+  ActionBar {
+    background-color: $hg-purple;
+  }
   .drawer-content {
     background-color: white;
     ListView {

@@ -2,8 +2,6 @@ import Vue from 'nativescript-vue'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import * as application from 'tns-core-modules/application'
 import {init} from 'nativescript-advanced-webview'
-import router from './router'
-import store from './store/index'
 import {sync} from 'vuex-router-sync'
 
 import 'nativescript-platform-css'
@@ -17,6 +15,9 @@ import {
   ApplicationEventData
 } from 'tns-core-modules/application'
 import {exit} from 'nativescript-exit'
+
+import router from '@/router'
+import store from '@/store/index'
 import {registerRequiredElements} from '@/utils/elements'
 import {registerLoginHandler} from '@/utils/login'
 
@@ -37,12 +38,15 @@ init()
 // Login call back url 'talkfunnel://xxxx' type
 registerLoginHandler()
 
+// Register custom elements as Vue components
 registerRequiredElements()
 
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;
 sync(store, router)
 router.replace('/home');
+
+
 
 new Vue({
   router,
