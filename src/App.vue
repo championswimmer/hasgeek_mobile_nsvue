@@ -25,7 +25,7 @@
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
       <StackLayout class="drawer-content" ~drawerContent>
-        <StackLayout class="sidedrawer-header"></StackLayout>
+        <NavDrawerHeader></NavDrawerHeader>
         <ListView for="item in topNavItems">
           <v-template>
             <StackLayout @tap="goToPage(item.page)" orientation="horizontal" class="sidedrawer-list-group">
@@ -44,7 +44,9 @@
 </template>
 <script>
   import {fonticon} from 'nativescript-fonticon'
+  import NavDrawerHeader from './components/navdrawer/NavDrawerHeader.vue'
   export default {
+    components: {NavDrawerHeader},
     data() {return {
       topNavItems: [
         {icon: 'mdi-home', text: 'Home', page: '/home'},
@@ -92,7 +94,6 @@
 
       }
     }
-
   }
 </script>
 <style lang="scss">
@@ -102,9 +103,6 @@
     ListView {
       margin-left: -15;
     }
-  }
-  .sidedrawer-header {
-    background-color: $hg-orange;
   }
   .sidedrawer-list-group {
     padding: 10;

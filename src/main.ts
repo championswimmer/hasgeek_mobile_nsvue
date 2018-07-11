@@ -1,6 +1,7 @@
 import Vue from 'nativescript-vue'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import * as application from 'tns-core-modules/application'
+import {init} from 'nativescript-advanced-webview'
 import router from './router'
 import store from './store/index'
 import {sync} from 'vuex-router-sync'
@@ -17,6 +18,7 @@ import {
 } from 'tns-core-modules/application'
 import {exit} from 'nativescript-exit'
 import {registerRequiredElements} from '@/utils/elements'
+import {registerLoginHandler} from '@/utils/login'
 
 // Prints all icon classes loaded
 // TNSFontIcon.debug = true;
@@ -28,6 +30,12 @@ Vue.filter('fonticon', fonticon);
 
 Vue.prototype.$isAndroid = isAndroid;
 Vue.prototype.$isIOS = isIOS;
+
+// Initialize advanced web view
+init()
+
+// Login call back url 'talkfunnel://xxxx' type
+registerLoginHandler()
 
 registerRequiredElements()
 
