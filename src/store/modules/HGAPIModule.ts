@@ -23,7 +23,7 @@ export default class HGAPIModule extends VuexModule {
 
   @Action({commit: 'updateConferences'})
   async loadConferences(this: Store<any>): Promise<HG.Conference[]> {
-    const confs = await HG.Conference.find()
+    const confs = await HG.Conference.find({order: {'start_time': 'ASC'}})
     if (confs.length == 0) {
       this.dispatch('refreshConferences')
     }

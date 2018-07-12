@@ -1,6 +1,7 @@
 import Vue from 'nativescript-vue'
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 import * as application from 'tns-core-modules/application'
+import * as settings from 'tns-core-modules/application-settings'
 import {init} from 'nativescript-advanced-webview'
 import {sync} from 'vuex-router-sync'
 
@@ -72,7 +73,7 @@ if (application.android) {
    * FIXME: On upgrade to nativescript-vue 2.x this wont be necessary
    */
   application.android.on(
-    AndroidApplication.activityStoppedEvent,
+    AndroidApplication.activityDestroyedEvent,
     (data: AndroidActivityEventData) => exit()
   )
 
@@ -82,6 +83,8 @@ if (application.android) {
       if (router.currentRoute.path.split('/').length > 2) {
         router.back()
         data.cancel = true
+      } else {
+        exit()
       }
     }
   )

@@ -15,7 +15,7 @@
           @tap="$refs.drawer.nativeView.toggleDrawerState()">
       </ActionItem>
       <ActionItem
-          v-show="showBack"
+          v-show="$isIOS && showBack"
           @tap="goBack"
           ios.position="right"
           text="Back">

@@ -1,8 +1,6 @@
 <template>
   <GridLayout xmlns="http://schemas.nativescript.org/tns.xsd" rows="*, auto">
-    <StackLayout row="0">
-      <Label :text="$route.params.id"></Label>
-    </StackLayout>
+    <router-view></router-view>
     <BottomNavigation activeColor="#df5e0e"
                       inactiveColor="#816894"
                       backgroundColor="white"
@@ -19,11 +17,25 @@
 <script lang="ts">
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
+  import {OnTabSelectedEventData} from 'nativescript-bottom-navigation'
 
   @Component({})
   export default class Conference extends Vue {
-    onTabSelected(event: Event) {
-      console.log(event)
+    confId = ''
+    created() {
+      this.confId = this.$route.params['confId']
+    }
+    getBottomBarPage(index: number) {
+      switch(index) {
+        case 0: return 'info'
+        case 1: return 'schedule'
+        case 2: return 'contacts'
+      }
+    }
+    onTabSelected(event: OnTabSelectedEventData) {
+      console.log(this.$route.params['confId'])
+      console.log(event.newIndex)
+      this.$router.replace(`/conferences/${this.confId}/${this.getBottomBarPage(event.newIndex)}`)
     }
   }
 </script>

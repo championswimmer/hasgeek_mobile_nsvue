@@ -4,8 +4,8 @@ import Vuex, {Module} from 'vuex'
 import {createConnection} from 'typeorm/browser'
 
 import * as HG from '@/models/HasGeekAPI'
-import counter from './modules/Counter2';
 import hgapi from './modules/HGAPIModule'
+import appSession from './modules/AppSession'
 
 Vue.use(Vuex);
 
@@ -22,8 +22,8 @@ createConnection({
 const store = new Vuex.Store({
   state: {},
   modules: {
-    counter,
-    hgapi
+    hgapi,
+    appSession
   }
 });
 Vue.prototype.$store = store;

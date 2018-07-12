@@ -17,7 +17,7 @@
         <Label class="blurb" :text="conference.blurb" textWrap="true"></Label>
         <StackLayout horizontalAlignment="right" class="footer-buttons" orientation="horizontal">
           <Button
-              v-if="conference.url"
+              v-show="conference.url"
               @tap="openLink(conference.url)"
               :style="{backgroundColor: conference.color.primary.toString()}">
             <FormattedString>
@@ -26,7 +26,7 @@
             </FormattedString>
           </Button>
           <Button
-              v-if="conference.funnel"
+              v-show="conference.funnel"
               @tap="openLink(conference.funnel)"
               :style="{backgroundColor: conference.color.primary.toString()}">
             <FormattedString>
@@ -46,7 +46,7 @@
   import {Vue, Component, Prop} from 'vue-property-decorator'
   import * as HG from '../../models/HasGeekAPI'
   import {fonticon} from 'nativescript-fonticon'
-  import {openUrl} from 'tns-core-modules/utils/utils'
+  import {openAdvancedUrl} from 'nativescript-advanced-webview'
   import router from '../../router'
 
   @Component
@@ -58,7 +58,12 @@
       catch (e) {return ''}
     }
     openLink(link: string) {
-      openUrl(link)
+      openAdvancedUrl({
+        url: link,
+        showTitle: false,
+        toolbarColor: this.conference.color.primary_dark,
+        toolbarControlsColor: '#ffffff'
+      })
     }
     goTo(path: string) {
       return router.push(path)
@@ -101,20 +106,15 @@
   }
   .footer-buttons {
     padding: 10;
-    width: 250;
-
+    width: 300;
   }
   Button {
+    margin: 5;
+    padding: 0;
     border-radius: 2;
+    height: 40;
     width: auto;
-    padding-left: 10;
-    padding-right: 10;
     color: white;
-    vertical-align: center;
-    .text {
-      display: inline-block;
-      vertical-align: top;
-    }
   }
   .ios {
     .card-header {
@@ -131,6 +131,8 @@
       min-height: 70;
     }
     Button {
+      padding-left: 10;
+      padding-right: 10;
       min-height: 30;
       width: 100;
       margin-left: 8;

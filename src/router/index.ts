@@ -3,10 +3,11 @@ import VueRouter, {RouterOptions} from 'vue-router'
 
 Vue.use(VueRouter);
 
-import  Home from '../pages/Home/Home.vue';
-import Events from '../pages/Events/Events.vue';
-import Conferences from '../pages/Conferences/Conferences.vue'
-import Conference from '../pages/Conferences/Conference.vue'
+import  Home from '../pages/home/Home.vue';
+import Events from '../pages/events/Events.vue';
+import Conferences from '../pages/conferences/Conferences.vue'
+import Conference from '../pages/conferences/Conference.vue'
+import Contacts from '../pages/conferences/conference/Contacts.vue'
 
 const router = new VueRouter(<RouterOptions>{
   routes: [
@@ -35,12 +36,34 @@ const router = new VueRouter(<RouterOptions>{
       }
     },
     {
-      path: '/conferences/:id',
+      path: '/conferences/:confId',
       component: Conference,
       meta: {
         title: 'Conference',
         icon: 'mdi-nature-people'
       },
+      children: [
+        {path: '', redirect: 'info'},
+        {
+          path: 'info',
+          meta: {
+            title: 'Information'
+          }
+        },
+        {
+          path: 'schedule',
+          meta: {
+            title: 'Schedule'
+          }
+        },
+        {
+          path: 'contacts',
+          component: Contacts,
+          meta: {
+            title: 'Contacts'
+          }
+        }
+      ]
     },
     {path: '*', redirect: '/home'}
   ],

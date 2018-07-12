@@ -1,6 +1,6 @@
 import { handleOpenURL, AppURL } from 'nativescript-urlhandler'
 import * as application from 'tns-core-modules/application';
-import { isAndroid, isIOS } from 'tns-core-modules/platform';
+import {isAndroid, isIOS, platformNames} from 'tns-core-modules/platform'
 
 export function registerLoginHandler () {
 
@@ -18,6 +18,11 @@ export function registerLoginHandler () {
 
     if (isAndroid) {
       // TODO: Close the webview in android too
+      android.widget.Toast.makeText(
+        application.android.foregroundActivity,
+        appUrl.path,
+        android.widget.Toast.LENGTH_LONG
+      ).show()
     }
   })
 }
