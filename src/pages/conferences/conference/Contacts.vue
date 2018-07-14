@@ -9,6 +9,7 @@
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
   import {BarcodeScanner} from 'nativescript-barcodescanner'
+  import * as toast from 'nativescript-toast'
   import {registerExitOnDestroy, unregisterExitOnDestroy} from '../../../utils/app-lifecycle'
 
   @Component({})
@@ -27,6 +28,7 @@
           formats: 'QR_CODE',
           orientation: 'vertical',
         })
+        toast.makeText(barCode.text).show()
       } catch (e) {
       }
       /*
