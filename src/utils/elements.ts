@@ -3,6 +3,7 @@ import Vue from "nativescript-vue"
 import {PullToRefresh} from 'nativescript-pulltorefresh'
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer'
 import {BottomNavigation, BottomNavigationTab} from 'nativescript-bottom-navigation'
+import {Fab} from 'nativescript-floatingactionbutton'
 
 export function registerRequiredElements() {
   Vue.registerElement('RadSideDrawer', () => RadSideDrawer)
@@ -10,4 +11,5 @@ export function registerRequiredElements() {
   Vue.registerElement('PullToRefresh', () => PullToRefresh)
   Vue.registerElement('BottomNavigation', () => BottomNavigation)
   Vue.registerElement('BottomNavigationTab', () => BottomNavigationTab)
+  Vue.registerElement('Fab', () => Fab)
 }

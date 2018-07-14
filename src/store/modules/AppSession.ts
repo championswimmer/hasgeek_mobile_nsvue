@@ -1,17 +1,11 @@
-import {Module} from 'vuex'
+import {VuexModule, Module, Mutation} from 'vuex-module-decorators'
 
-interface AppSession {
-  shouldAnimateHome: boolean
-}
-const appSession: Module<AppSession, any> = {
-  state: {
-    shouldAnimateHome: true
-  },
-  mutations: {
-    homeAnimated(state: AppSession) {
-      state.shouldAnimateHome = false
-    }
+@Module
+export default class AppSession extends VuexModule {
+  shouldAnimateHome = false
+
+  @Mutation
+  homeAnimated() {
+    this.shouldAnimateHome = true
   }
 }
-
-export default appSession

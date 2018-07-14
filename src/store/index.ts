@@ -6,6 +6,7 @@ import {createConnection} from 'typeorm/browser'
 import * as HG from '@/models/HasGeekAPI'
 import hgapi from './modules/HGAPIModule'
 import appSession from './modules/AppSession'
+import userAuth from './modules/UserAuth'
 
 Vue.use(Vuex);
 
@@ -23,7 +24,8 @@ const store = new Vuex.Store({
   state: {},
   modules: {
     hgapi,
-    appSession
+    appSession,
+    userAuth
   }
 });
 Vue.prototype.$store = store;

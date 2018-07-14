@@ -1,5 +1,5 @@
 <template>
-  <GridLayout xmlns="http://schemas.nativescript.org/tns.xsd" rows="*, auto">
+  <GridLayout id="conference-component" xmlns="http://schemas.nativescript.org/tns.xsd" rows="*, auto">
     <router-view></router-view>
     <BottomNavigation activeColor="#df5e0e"
                       inactiveColor="#816894"
@@ -39,6 +39,6 @@
     }
   }
 </script>
-<style>
+<style lang="scss" scoped>
 
 </style>

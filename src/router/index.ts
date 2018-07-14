@@ -8,6 +8,8 @@ import Events from '../pages/events/Events.vue';
 import Conferences from '../pages/conferences/Conferences.vue'
 import Conference from '../pages/conferences/Conference.vue'
 import Contacts from '../pages/conferences/conference/Contacts.vue'
+import ContactScanner from '../pages/conferences/conference/ContactScanner.vue'
+
 
 const router = new VueRouter(<RouterOptions>{
   routes: [
@@ -46,6 +48,7 @@ const router = new VueRouter(<RouterOptions>{
         {path: '', redirect: 'info'},
         {
           path: 'info',
+          component: ContactScanner,
           meta: {
             title: 'Information'
           }
@@ -62,7 +65,7 @@ const router = new VueRouter(<RouterOptions>{
           meta: {
             title: 'Contacts'
           }
-        }
+        },
       ]
     },
     {path: '*', redirect: '/home'}
