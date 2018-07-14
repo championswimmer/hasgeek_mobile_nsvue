@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue';
-import Vuex, {Module} from 'vuex'
+import Vuex, {Module} from 'vuex';
 
 import {createConnection} from 'typeorm/browser'
 
@@ -28,6 +28,8 @@ const store = new Vuex.Store({
     userAuth
   }
 });
-Vue.prototype.$store = store;
+store.commit('retrieveUser')
 
+Vue.prototype.$store = store;
 export default store
+

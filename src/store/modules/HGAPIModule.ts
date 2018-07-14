@@ -1,7 +1,7 @@
 import {Action, Mutation, Module, VuexModule, MutationAction} from 'vuex-module-decorators'
 import * as HG from '@/models/HasGeekAPI'
-import {getJSON} from 'tns-core-modules/http'
 import {Store} from 'vuex'
+import {getAll, getConferences, getEvents} from '@/api/hasgeek-github'
 
 @Module
 export default class HGAPIModule extends VuexModule {
@@ -10,7 +10,7 @@ export default class HGAPIModule extends VuexModule {
 
   @MutationAction({mutate: ['events', 'conferences']})
   async fetchAll () {
-    const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/all.json')
+    const response = await getAll()
     return response
   }
 
@@ -32,8 +32,8 @@ export default class HGAPIModule extends VuexModule {
 
   @Action({commit: 'updateConferences'})
   async refreshConferences(): Promise<HG.Conference[]> {
-    const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/conferences.json')
-    for (let conf of response.conferences) {
+    const conferences = await getConferences()
+    for (let conf of conferences) {
       if (typeof conf.color === 'undefined') {
         conf.color = {
           primary: '#604E6E', primary_dark: '#df5e0e', accent: '#555555'
@@ -41,7 +41,7 @@ export default class HGAPIModule extends VuexModule {
       }
       HG.Conference.save(conf)
     }
-    return response.conferences
+    return conferences
   }
 
   @Action({commit: 'updateEvents'})
@@ -55,10 +55,10 @@ export default class HGAPIModule extends VuexModule {
 
   @Action({commit: 'updateEvents'})
   async refreshEvents(): Promise<HG.Event[]> {
-    const response: HG.Response = await getJSON('https://hasgeek.github.io/events/api/events.json')
-    for (let event of response.events) {
+    const events = await getEvents()
+    for (let event of events) {
       HG.Event.save(event)
     }
-    return response.events
+    return events
   }
 }

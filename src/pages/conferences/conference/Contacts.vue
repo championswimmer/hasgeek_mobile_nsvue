@@ -9,7 +9,7 @@
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
   import {BarcodeScanner} from 'nativescript-barcodescanner'
-  import {registerExitOnDestroy, unregisterExitOnDestroy} from '../../../utils/lifecycle'
+  import {registerExitOnDestroy, unregisterExitOnDestroy} from '../../../utils/app-lifecycle'
 
   @Component({})
   export default class Contacts extends Vue {

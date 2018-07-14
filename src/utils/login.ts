@@ -3,6 +3,9 @@ import * as application from 'tns-core-modules/application';
 import {isAndroid, isIOS, platformNames} from 'tns-core-modules/platform'
 import * as toast from 'nativescript-toast'
 import {parseTokenHash} from '@/utils/parsers'
+import store from '@/store'
+import {getUser} from '@/api/auth'
+import User from '@/models/User'
 
 export function registerLoginHandler () {
 
@@ -15,8 +18,19 @@ export function registerLoginHandler () {
       controller.dismissViewControllerAnimatedCompletion(true, () => {});
     }
     // For Android, it is automatically closed because of activity intent
+    const tokenHash = parseTokenHash(appUrl.path)
+    if (typeof tokenHash === 'undefined' || !tokenHash.access_token) {
+      toast.makeText("Error in login").show()
+      return
+    }
 
-    toast.makeText(JSON.stringify(parseTokenHash(appUrl.path))).show()
+    toast.makeText("Login Successful").show()
+    store.commit('setAuthToken', tokenHash.access_token)
+
+    getUser().then((data: {result: User}) => {
+      store.commit('saveUser', data.result)
+    })
+
 
   })
 }

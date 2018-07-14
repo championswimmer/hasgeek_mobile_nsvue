@@ -1,27 +1,39 @@
 <template>
   <StackLayout class="sidedrawer-header" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <StackLayout orientation="horizontal">
-      <Label width="70%" id="hi" text="Hi, Guest"></Label>
-      <Label @tap="openLoginUrl()" width="30%" id="login" text="Login"></Label>
-    </StackLayout>
+    <GridLayout rows="*,auto" columns="*,auto">
+      <Label col="0" row="1" id="hi" :text="`Hi, ${fullname}`"></Label>
+      <Label col="1" row="1" v-show="showLogin" @tap="openLoginUrl()" id="login" text="Login"></Label>
+    </GridLayout>
   </StackLayout>
 </template>
 
-<script>
+<script lang="ts">
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
   import { openAdvancedUrl } from 'nativescript-advanced-webview';
-  import {openUrl} from 'tns-core-modules/utils/utils'
 
-  @Component({})
+  @Component
   export default class NavDrawerHeader extends Vue {
+
+    get fullname () {
+      if (this.$store.state.userAuth.user) {
+        return this.$store.state.userAuth.user.fullname
+      } else {
+        return 'Guest'
+      }
+    }
+    get showLogin() {
+      return this.$store.state.userAuth.authToken == null;
+
+    }
 
     openLoginUrl() {
       openAdvancedUrl({
         url: 'http://auth.hasgeek.com/auth?client_id=eDnmYKApSSOCXonBXtyoDQ&scope=id+email+phone+organizations+teams+com.talkfunnel:*&response_type=token',
         toolbarColor: '#816894',
       })
-      this.$parent.$refs.drawer.nativeView.toggleDrawerState()
+      const drawer = this.$parent.$refs.drawer as any
+      drawer.nativeView.toggleDrawerState()
     }
 
   }
@@ -44,7 +56,7 @@
   .sidedrawer-header {
     background-color: $hg-orange;
     vertical-align: bottom;
-    StackLayout {
+    GridLayout {
       padding: 10
     }
   }

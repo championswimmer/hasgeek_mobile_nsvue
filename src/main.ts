@@ -20,7 +20,7 @@ import router from '@/router'
 import store from '@/store/index'
 import {registerRequiredElements} from '@/utils/elements'
 import {registerLoginHandler} from '@/utils/login'
-import {registerExitOnDestroy} from '@/utils/lifecycle'
+import {registerExitOnDestroy} from '@/utils/app-lifecycle'
 
 // Prints all icon classes loaded
 // TNSFontIcon.debug = true;
