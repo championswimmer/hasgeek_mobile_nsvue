@@ -1,6 +1,6 @@
 <template>
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
-    <GridLayout id="logo-tagline-container" rows="auto,auto" columns="*,*,*">
+    <GridLayout id="logo-tagline-container" rows="auto,auto,*" columns="*,*,*">
       <Image ref="logo" id="logo-image" src="~/images/logo.png" row="0" col="0" colSpan="1" rowSpan="2"></Image>
       <Label ref="tagline" id="tagline" row="0" col="1" colSpan="2" rowSpan="2" textWrap="true">
         <FormattedString textWrap="true">
@@ -47,7 +47,7 @@
   }
   @keyframes shrinkToCorner {
     from {
-      transform: translate(100,200), scale(4)
+      transform: translate(100,200), scale(6)
     }
     to {
       transform: translate(0,0), scale(1)
@@ -73,6 +73,7 @@
     padding-bottom: 10;
   }
   #tagline {
+    padding-right: 5;
     width: auto;
     height: auto;
     font-size: 17pt;

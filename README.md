@@ -65,3 +65,14 @@ npm run clean
 > When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
 
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+
+## Publishing
+
+### iOS
+
+```shell
+npm run clean && npm run build:ios
+cd dist
+tns build ios --release --for-device
+tns publish ios --ipa platforms/ios/build/device/dist.ipa
+```

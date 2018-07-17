@@ -2,10 +2,10 @@ import {VuexModule, Module, Mutation} from 'vuex-module-decorators'
 
 @Module
 export default class AppSession extends VuexModule {
-  shouldAnimateHome = false
+  shouldAnimateHome = true
 
   @Mutation
   homeAnimated() {
-    this.shouldAnimateHome = true
+    this.shouldAnimateHome = false
   }
 }

@@ -4,7 +4,7 @@
   "license": "MIT",
   "readme": "HasGeek",
   "nativescript": {
-    "id": "com.hasgeek.app",
+    "id": "com.hasgeek.unofficial",
     "tns-ios": {
       "version": "4.1.1"
     },
