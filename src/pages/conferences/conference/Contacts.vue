@@ -30,6 +30,7 @@
         })
         toast.makeText(barCode.text).show()
       } catch (e) {
+        console.error(e)
       }
       /*
        * Register it back again

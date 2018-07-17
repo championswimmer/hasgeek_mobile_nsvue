@@ -65,5 +65,8 @@
         <key>UIViewControllerBasedStatusBarAppearance</key>
         <false/>
 
+        <key>NSCameraUsageDescription</key>
+        <string>We would like to use the camera to scan badge QR codes</string>
+
 	</dict>
 </plist>
