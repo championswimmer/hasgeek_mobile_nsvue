@@ -3,7 +3,7 @@
     <PullToRefresh id="refresh" @refresh="reloadEvents">
       <ListView id="event-list" separatorColor="transparent" ref="eventList" for="event in events">
         <v-template>
-          <EventCard :event="event"></EventCard>
+          <EventCard @tap="openEvent(event)" :event="event"></EventCard>
         </v-template>
       </ListView>
     </PullToRefresh>
@@ -16,10 +16,14 @@
   import EventCard from '@/components/cards/EventCard'
   import store from '@/store'
   import {PullToRefresh} from 'nativescript-pulltorefresh'
+  import {openAdvancedUrl} from 'nativescript-advanced-webview'
   @Component({
     components: {EventCard}
   })
   export default class Events extends Vue {
+    openEvent(event: Event) {
+      openAdvancedUrl({url: event.url})
+    }
     get events(): Event[] {
       return store.state.hgapi.events
     }

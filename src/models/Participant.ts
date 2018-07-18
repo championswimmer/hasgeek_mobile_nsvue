@@ -1,4 +1,5 @@
 import {BaseEntity, Column, Entity, ManyToOne, PrimaryColumn} from 'typeorm/browser'
+import Space from '@/models/talkfunnel/Space'
 // TODO: add class-validator for validations
 
 @Entity()
@@ -25,8 +26,8 @@ export default class Participant extends BaseEntity {
   @Column()
   puk: string
 
-  // @ManyToOne(type => Space)
-  // space_id: number
+  @ManyToOne(type => Space)
+  space_id: number
 
   @Column()
   twitter: string

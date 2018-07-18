@@ -1,4 +1,4 @@
-import {Color} from '@/models/HasGeekAPI'
+import {Color} from '../HasGeekAPI'
 import {Entity} from 'typeorm'
 import {BaseEntity, Column, PrimaryColumn} from 'typeorm/browser'
 

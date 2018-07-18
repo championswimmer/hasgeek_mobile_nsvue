@@ -1,5 +1,5 @@
-import Event from '@/models/Event'
-import Conference from '@/models/Conference'
+import Event from '@/models/hasgeek-github/Event'
+import Conference from '@/models/hasgeek-github/Conference'
 
 export interface Response {
   conferences?: Array<Conference> | null;
