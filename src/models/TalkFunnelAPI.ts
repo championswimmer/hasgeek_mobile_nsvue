@@ -5,6 +5,10 @@ import Section from '@/models/talkfunnel/Section'
 import Space from '@/models/talkfunnel/Space'
 import Venue from '@/models/talkfunnel/Venue'
 
+export interface FunnelResponse {
+  spaces: Space[]
+}
+
 export interface FunnelEvent {
   proposals: Proposal[];
   rooms: Room[];
