@@ -18,12 +18,15 @@
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
   import {OnTabSelectedEventData} from 'nativescript-bottom-navigation'
+  import * as HG from '@/models/HasGeekAPI'
 
   @Component({})
   export default class Conference extends Vue {
     confId = ''
-    created() {
+    conference: HG.Conference
+    async created() {
       this.confId = this.$route.params['confId']
+      this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
     }
     getBottomBarPage(index: number) {
       switch(index) {

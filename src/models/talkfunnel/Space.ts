@@ -1,6 +1,6 @@
 
 
-export default interface Space {
+export default class Space {
   bg_color: string;
   bg_image: string;
   datelocation: string;

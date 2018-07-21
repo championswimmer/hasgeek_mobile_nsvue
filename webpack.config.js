@@ -134,10 +134,14 @@ const config = (platform, launchArgs) => {
 
       // // Minify JavaScript code
       // new UglifyJSWebpackPlugin({
-      //   parallel: false,
+      //   parallel: true,
+      //   cache: true,
       //   uglifyOptions: {
-      //     mangle: { reserved: [ ...nsWebpack.uglifyMangleExcludes, "TNS_SwipeRefreshListener" ] },
-      //     ecma: 5
+      //     mangle: false,
+      //     compress: false,
+      //     keep_classnames: true,
+      //     keep_fnames: true,
+      //     ecma: 6
       //   }
       // }),
 

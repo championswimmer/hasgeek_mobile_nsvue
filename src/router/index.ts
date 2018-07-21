@@ -8,7 +8,8 @@ import Events from '../pages/events/Events.vue';
 import Conferences from '../pages/conferences/Conferences.vue'
 import Conference from '../pages/conferences/Conference.vue'
 import Contacts from '../pages/conferences/conference/Contacts.vue'
-import ContactScanner from '../pages/conferences/conference/ContactScanner.vue'
+import Info from '../pages/conferences/conference/Info.vue'
+import Schedule from '../pages/conferences/conference/Schedule.vue'
 
 
 const router = new VueRouter(<RouterOptions>{
@@ -48,13 +49,14 @@ const router = new VueRouter(<RouterOptions>{
         {path: '', redirect: 'info'},
         {
           path: 'info',
-          component: ContactScanner,
+          component: Info,
           meta: {
             title: 'Information'
           }
         },
         {
           path: 'schedule',
+          component: Schedule,
           meta: {
             title: 'Schedule'
           }
