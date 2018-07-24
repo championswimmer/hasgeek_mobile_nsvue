@@ -76,3 +76,36 @@ cd dist
 tns build ios --release --for-device
 tns publish ios --ipa platforms/ios/build/device/dist.ipa
 ```
+
+### Android
+
+####  From  CLI
+```shell
+npm run clean && npm run build:android
+cd dist
+tns build android --release \
+    --key-store-path ~/path/to/ketstore.jks \
+    --key-store-password storepass \
+    --key-store-alias ALIAS \
+    --key-store-alias-password aliaspass
+```
+
+#### From XCode
+
+1. Prepare project
+    ```shell
+    npm run clean && npm run build:ios
+    cd dist
+    tns prepare ios
+    ```
+2. Open `/dist/platforms/ios` in XCode
+
+#### Via Android Studio
+
+1. Prepare project
+    ```shell
+    npm run clean && npm run build:android
+    cd dist
+    tns prepare android
+    ```
+2. Open `/dist/platforms/android` in Android Studio

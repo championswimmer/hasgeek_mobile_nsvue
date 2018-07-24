@@ -132,18 +132,18 @@ const config = (platform, launchArgs) => {
         canPrint: false,
       }),
 
-      // // Minify JavaScript code
-      // new UglifyJSWebpackPlugin({
-      //   parallel: true,
-      //   cache: true,
-      //   uglifyOptions: {
-      //     mangle: false,
-      //     compress: false,
-      //     keep_classnames: true,
-      //     keep_fnames: true,
-      //     ecma: 6
-      //   }
-      // }),
+      // Minify JavaScript code
+      new UglifyJSWebpackPlugin({
+        parallel: true,
+        cache: true,
+        uglifyOptions: {
+          mangle: false,
+          compress: false,
+          keep_classnames: true,
+          keep_fnames: true,
+          ecma: 6
+        }
+      }),
 
       // Copy src/assets/**/* to dist/
       new CopyWebpackPlugin([
