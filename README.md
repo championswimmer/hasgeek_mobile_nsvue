@@ -14,23 +14,20 @@ Vue.config.silent = true;
 By default in dev mode, silent is false, and full Vue component creation
 logs are printed.
 
-### Minification in Webpack
+## Development Mode
+### Disable minification in Webpack
+Disabling minification allows us to get more meaningful stacktraces from
+the device.
 
-In `webpack.config.js` uncomment these lines
+In `webpack.config.js` comment these lines
 
 ```js
       // Minify JavaScript code
       new UglifyJSWebpackPlugin({
-        parallel: false,
-        uglifyOptions: {
-          mangle: { reserved: [ ...nsWebpack.uglifyMangleExcludes, "TNS_SwipeRefreshListener" ] },
-          ecma: 5
-        }
+        ...
+        ...
       })
 ```
-
-## Development Tips
-
 ### Database
 
  * To pull out database and inspect locally (in Android)
@@ -40,6 +37,28 @@ In `webpack.config.js` uncomment these lines
     adb exec-out run-as package.name cat databases/hasgeek.db > hasgeek.db
     ```
 
+#### Create Commands
+
+```sql
+BEGIN TRANSACTION
+SELECT * FROM "sqlite_master" WHERE "type" = 'table' AND "name" IN ('event', 'conference', 'space', 'proposal', 'venue', 'room')
+SELECT * FROM "sqlite_master" WHERE "type" = 'index' AND "tbl_name" IN ('event', 'conference', 'space', 'proposal', 'venue', 'room')
+CREATE TABLE "event" ("name" varchar PRIMARY KEY NOT NULL, "title" varchar NOT NULL, "start_time" varchar NOT NULL, "city" varchar NOT NULL, "venue" varchar NOT NULL, "google_maps_link" varchar NOT NULL, "end_time" varchar NOT NULL, "url" varchar NOT NULL, "funnel" varchar NOT NULL, "blurb" varchar NOT NULL)
+CREATE TABLE "conference" ("id" varchar PRIMARY KEY NOT NULL, "title" varchar NOT NULL, "start_time" datetime NOT NULL, "city" varchar NOT NULL, "venue" varchar NOT NULL, "google_maps_link" varchar NOT NULL, "end_time" datetime NOT NULL, "url" varchar NOT NULL, "funnel" varchar NOT NULL, "blurb" varchar NOT NULL, "color" text NOT NULL)
+CREATE TABLE "space" ("id" integer PRIMARY KEY NOT NULL, "bg_color" varchar NOT NULL, "bg_image" varchar NOT NULL, "datelocation" varchar NOT NULL, "end" varchar NOT NULL, "explore_url" varchar NOT NULL, "json_url" varchar NOT NULL, "name" varchar NOT NULL, "start" varchar NOT NULL, "state" varchar NOT NULL, "status" integer NOT NULL, "timezone" varchar NOT NULL, "title" varchar NOT NULL, "url" varchar NOT NULL, "website" varchar NOT NULL)
+CREATE TABLE "proposal" ("id" integer PRIMARY KEY NOT NULL, "bio" varchar NOT NULL, "comments" integer NOT NULL, "confirmed" boolean NOT NULL, "description" varchar NOT NULL, "fullname" varchar NOT NULL, "json_url" varchar NOT NULL, "level" varchar NOT NULL, "links" varchar NOT NULL, "name" varchar NOT NULL, "objective" varchar NOT NULL, "preview_video" varchar NOT NULL, "proposer" varchar NOT NULL, "requirements" varchar NOT NULL, "section" varchar NOT NULL, "slides" varchar NOT NULL, "speaker" varchar NOT NULL, "submitted" datetime NOT NULL, "title" varchar NOT NULL, "type" varchar NOT NULL, "url" varchar NOT NULL, "votes" integer NOT NULL, "space_id" integer)
+CREATE TABLE "venue" ("name" varchar PRIMARY KEY NOT NULL, "address1" varchar NOT NULL, "address2" varchar NOT NULL, "city" varchar NOT NULL, "country" varchar NOT NULL, "description" varchar NOT NULL, "json_url" varchar NOT NULL, "latitude" varchar NOT NULL, "longitude" varchar NOT NULL, "postcode" varchar NOT NULL, "state" varchar NOT NULL, "title" varchar NOT NULL, "url" varchar NOT NULL)
+CREATE TABLE "room" ("name" varchar PRIMARY KEY NOT NULL, "bgcolor" varchar NOT NULL, "description" varchar NOT NULL, "json_url" varchar NOT NULL, "title" varchar NOT NULL, "url" varchar NOT NULL, "venue" varchar NOT NULL)
+CREATE TABLE "temporary_proposal" ("id" integer PRIMARY KEY NOT NULL, "bio" varchar NOT NULL, "comments" integer NOT NULL, "confirmed" boolean NOT NULL, "description" varchar NOT NULL, "fullname" varchar NOT NULL, "json_url" varchar NOT NULL, "level" varchar NOT NULL, "links" varchar NOT NULL, "name" varchar NOT NULL, "objective" varchar NOT NULL, "preview_video" varchar NOT NULL, "proposer" varchar NOT NULL, "requirements" varchar NOT NULL, "section" varchar NOT NULL, "slides" varchar NOT NULL, "speaker" varchar NOT NULL, "submitted" datetime NOT NULL, "title" varchar NOT NULL, "type" varchar NOT NULL, "url" varchar NOT NULL, "votes" integer NOT NULL, "space_id" integer, CONSTRAINT "FK_3b467a49eac84a73a66126fde4b" FOREIGN KEY ("space_id") REFERENCES "space" ("id"))
+INSERT INTO "temporary_proposal"("id", "bio", "comments", "confirmed", "description", "fullname", "json_url", "level", "links", "name", "objective", "preview_video", "proposer", "requirements", "section", "slides", "speaker", "submitted", "title", "type", "url", "votes", "space_id") SELECT "id", "bio", "comments", "confirmed", "description", "fullname", "json_url", "level", "links", "name", "objective", "preview_video", "proposer", "requirements", "section", "slides", "speaker", "submitted", "title", "type", "url", "votes", "space_id" FROM "proposal"
+DROP TABLE "proposal"
+ALTER TABLE "temporary_proposal" RENAME TO "proposal"
+CREATE TABLE "temporary_room" ("name" varchar PRIMARY KEY NOT NULL, "bgcolor" varchar NOT NULL, "description" varchar NOT NULL, "json_url" varchar NOT NULL, "title" varchar NOT NULL, "url" varchar NOT NULL, "venue" varchar NOT NULL, CONSTRAINT "FK_726dc1e51bcdf8be0b224c57eab" FOREIGN KEY ("venue") REFERENCES "venue" ("name"))
+INSERT INTO "temporary_room"("name", "bgcolor", "description", "json_url", "title", "url", "venue") SELECT "name", "bgcolor", "description", "json_url", "title", "url", "venue" FROM "room"
+DROP TABLE "room"
+ALTER TABLE "temporary_room" RENAME TO "room"
+COMMIT
+```
 ## Usage
 
 ``` bash

@@ -1,19 +1,26 @@
+import {BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryColumn} from 'typeorm/browser'
+import Proposal from '@/models/talkfunnel/Proposal'
 
-
-export default class Space {
-  bg_color: string;
-  bg_image: string;
-  datelocation: string;
-  end: string;
-  explore_url: string;
+@Entity()
+export default class Space extends BaseEntity {
+  @PrimaryColumn()
   id: number;
-  json_url: string;
-  name: string;
-  start: string;
-  state: string;
-  status: number;
-  timezone: string;
-  title: string;
-  url: string;
-  website: string;
+
+  @Column() bg_color: string;
+  @Column() bg_image: string;
+  @Column() datelocation: string;
+  @Column() end: string;
+  @Column() explore_url: string;
+  @Column() json_url: string;
+  @Column() name: string;
+  @Column() start: string;
+  @Column() state: string;
+  @Column() status: number;
+  @Column() timezone: string;
+  @Column() title: string;
+  @Column() url: string;
+  @Column() website: string;
+
+  @OneToMany(type => Proposal, 'space_id')
+  proposals: Proposal[]
 }

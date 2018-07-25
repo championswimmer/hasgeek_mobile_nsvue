@@ -1,4 +1,4 @@
-import {BaseEntity, Column, Entity, ManyToOne, PrimaryColumn} from 'typeorm/browser'
+import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryColumn} from 'typeorm/browser'
 import Space from '@/models/talkfunnel/Space'
 // TODO: add class-validator for validations
 
@@ -27,7 +27,8 @@ export default class Participant extends BaseEntity {
   puk: string
 
   @ManyToOne(type => Space)
-  space_id: number
+  @JoinColumn({name: 'space_id'})
+  space: Space
 
   @Column()
   twitter: string

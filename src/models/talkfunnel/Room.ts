@@ -1,11 +1,17 @@
+import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryColumn} from 'typeorm/browser'
+import Venue from '@/models/talkfunnel/Venue'
 
+@Entity()
+export default class Room extends BaseEntity {
+  @PrimaryColumn() name: string;
 
-export default interface Room {
-  bgcolor: string;
-  description: string;
-  json_url?: any;
-  name: string;
-  title: string;
-  url?: any;
-  venue: string;
+  @Column() bgcolor: string;
+  @Column() description: string;
+  @Column() json_url?: string;
+  @Column() title: string;
+  @Column() url?: string;
+
+  @ManyToOne(type => Venue)
+  @JoinColumn({name: 'venue'})
+  @Column() venue: Venue;
 }

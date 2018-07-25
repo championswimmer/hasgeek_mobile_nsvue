@@ -1,17 +1,20 @@
+import {BaseEntity, Column, Entity, ManyToOne, PrimaryColumn} from 'typeorm/browser'
 
-
-export default interface Venue {
-  address1: string;
-  address2: string;
-  city: string;
-  country: string;
-  description: string;
-  json_url?: any;
-  latitude?: any;
-  longitude?: any;
+@Entity()
+export default class Venue extends BaseEntity {
+  @PrimaryColumn()
   name: string;
-  postcode: string;
-  state: string;
-  title: string;
-  url?: any;
+
+  @Column() address1: string;
+  @Column() address2: string;
+  @Column() city: string;
+  @Column() country: string;
+  @Column() description: string;
+  @Column() json_url?: string;
+  @Column() latitude?: string;
+  @Column() longitude?: string;
+  @Column() postcode: string;
+  @Column() state: string;
+  @Column() title: string;
+  @Column() url?: string;
 }

@@ -23,10 +23,17 @@
   @Component({})
   export default class Conference extends Vue {
     confId = ''
-    conference: HG.Conference
+    conference: HG.Conference = null
     async created() {
       this.confId = this.$route.params['confId']
+      console.log(this.confId)
+    }
+    async mounted () {
       this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
+      console.log(this.conference.funnel)
+      // this.$store.commit('setFunnelUrl', this.conference.funnel)
+      // this.$store.dispatch('fetchTalkFunnelSpace')
+
     }
     getBottomBarPage(index: number) {
       switch(index) {

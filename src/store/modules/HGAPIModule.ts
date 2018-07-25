@@ -39,8 +39,8 @@ export default class HGAPIModule extends VuexModule {
           primary: '#604E6E', primary_dark: '#df5e0e', accent: '#555555'
         }
       }
-      HG.Conference.save(conf)
     }
+    HG.Conference.save(conferences)
     return conferences
   }
 

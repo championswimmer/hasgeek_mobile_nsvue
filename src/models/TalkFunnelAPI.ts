@@ -9,11 +9,17 @@ export interface FunnelResponse {
   spaces: Space[]
 }
 
-export interface FunnelEvent {
+export interface FunnelSpaceResponse {
   proposals: Proposal[];
   rooms: Room[];
   schedule: Schedule[];
   sections: Section[];
   space: Space;
   venues: Venue[];
+}
+
+export {
+  Space, Proposal,
+  Venue, Room,
+  Schedule, Section
 }
