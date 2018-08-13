@@ -20,12 +20,16 @@ export default class TalkFunnelSpace extends VuexModule {
   }
 
   @MutationAction({mutate: ['space', 'proposals', 'venues', 'rooms']})
-  async fetchTalkFunnelSpace(this: {state: TalkFunnelSpace, rootState: Store<any>}) {
-    const client = new TalkFunnelClient(this.state.funnelUrl, this.rootState.state.userAuth.authToken)
-    const funnelSpace = await client.getEventData()
-    funnelSpace.space.proposals = funnelSpace.proposals
-    await TF.Space.save(funnelSpace.space)
+  async fetchTalkFunnelSpace(this: {state: TalkFunnelSpace, rootState: any}) {
+    console.log('===== = = = = = fetchTalkFunnelSpace')
+    console.log(this.rootState.userAuth.authToken)
+    console.log(this.state.funnelUrl)
 
-    return funnelSpace
+    // const client = new TalkFunnelClient(this.state.funnelUrl, this.rootState.userAuth.authToken)
+    // const funnelSpace = await client.getEventData()
+    // funnelSpace.space.proposals = funnelSpace.proposals
+    // await TF.Space.save(funnelSpace.space)
+    // console.log(funnelSpace)
+    // return funnelSpace
   }
 }
