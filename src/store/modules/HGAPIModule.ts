@@ -36,7 +36,7 @@ export default class HGAPIModule extends VuexModule {
     for (let conf of conferences) {
       if (typeof conf.color === 'undefined') {
         conf.color = {
-          primary: '#604E6E', primary_dark: '#df5e0e', accent: '#555555'
+          primary: '#549EAF', primary_dark: '#df5e0e', accent: '#555555'
         }
       }
     }

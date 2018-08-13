@@ -16,13 +16,13 @@
   import EventCard from '@/components/cards/EventCard'
   import store from '@/store'
   import {PullToRefresh} from 'nativescript-pulltorefresh'
-  import {openAdvancedUrl} from 'nativescript-advanced-webview'
+  import {openWebView} from 'nativescript-awesome-webview'
   @Component({
     components: {EventCard}
   })
   export default class Events extends Vue {
     openEvent(event: Event) {
-      openAdvancedUrl({url: event.url})
+      openWebView({url: event.url})
     }
     get events(): Event[] {
       return store.state.hgapi.events

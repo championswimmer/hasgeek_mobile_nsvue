@@ -7,7 +7,7 @@ import {
   AndroidApplication,
   ApplicationEventData
 } from 'tns-core-modules/application'
-import {init} from 'nativescript-advanced-webview'
+import {init} from 'nativescript-awesome-webview'
 import {sync} from 'vuex-router-sync'
 
 import 'nativescript-platform-css'
@@ -33,7 +33,7 @@ Vue.filter('fonticon', fonticon)
 Vue.prototype.$isAndroid = isAndroid
 Vue.prototype.$isIOS = isIOS
 
-// Initialize advanced web view
+// Initialize awesome web view
 init()
 
 // Login call back url 'talkfunnel://xxxx' type

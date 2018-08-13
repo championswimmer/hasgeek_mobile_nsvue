@@ -10,7 +10,7 @@
 <script lang="ts">
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
-  import { openAdvancedUrl } from 'nativescript-advanced-webview';
+  import {openWebView} from 'nativescript-awesome-webview'
 
   @Component
   export default class NavDrawerHeader extends Vue {
@@ -28,7 +28,7 @@
     }
 
     openLoginUrl() {
-      openAdvancedUrl({
+      openWebView({
         url: 'http://auth.hasgeek.com/auth?client_id=eDnmYKApSSOCXonBXtyoDQ&scope=id+email+phone+organizations+teams+com.talkfunnel:*&response_type=token',
         toolbarColor: '#816894',
       })

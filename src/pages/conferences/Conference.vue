@@ -31,8 +31,8 @@
     async mounted () {
       this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
       console.log(this.conference.funnel)
-      // this.$store.commit('setFunnelUrl', this.conference.funnel)
-      // this.$store.dispatch('fetchTalkFunnelSpace')
+      this.$store.commit('setFunnelUrl', this.conference.funnel)
+      this.$store.dispatch('fetchTalkFunnelSpace')
 
     }
     getBottomBarPage(index: number) {

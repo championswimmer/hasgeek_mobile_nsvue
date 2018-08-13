@@ -46,7 +46,7 @@
   import {Vue, Component, Prop} from 'vue-property-decorator'
   import * as HG from '../../models/HasGeekAPI'
   import {fonticon} from 'nativescript-fonticon'
-  import {openAdvancedUrl} from 'nativescript-advanced-webview'
+  import {openWebView} from 'nativescript-awesome-webview'
   import router from '../../router'
 
   @Component
@@ -58,10 +58,10 @@
       catch (e) {return ''}
     }
     openLink(link: string) {
-      openAdvancedUrl({
+      openWebView({
         url: link,
         showTitle: false,
-        toolbarColor: this.conference.color.primary_dark,
+        toolbarColor: this.conference.color.primary,
         toolbarControlsColor: '#ffffff'
       })
     }
