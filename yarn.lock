@@ -5118,6 +5118,10 @@ tns-core-modules@^4.2.0:
   dependencies:
     tns-core-modules-widgets "4.2.1"
 
+tns-platform-declarations@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/tns-platform-declarations/-/tns-platform-declarations-4.2.1.tgz#3a884fae77f02c70b59a7d052983d094efb7d485"
+
 to-array@0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/to-array/-/to-array-0.1.4.tgz#17e6c11f73dd4f3d74cda7a4ff3238e9ad9bf890"

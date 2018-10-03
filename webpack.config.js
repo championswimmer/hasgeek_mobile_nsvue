@@ -58,7 +58,7 @@ module.exports = env => {
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
 
     const entryModule = nsWebpack.getEntryModule(appFullPath);
-    const entryPath = `.${sep}${entryModule}.js`;
+    const entryPath = `.${sep}${entryModule}.ts`;
     console.log(`Bundling application for entryPath ${entryPath}...`);
 
     const config = {

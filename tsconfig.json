@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "module": "commonjs",
     "target": "es2015",
     "sourceMap": true,
     "lib": ["dom", "es2015"],
     "importHelpers": true,
     "strict": true,
-    "typeRoots": ["types"]
+    "types": ["node"],
+    "typeRoots": ["types"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "app",

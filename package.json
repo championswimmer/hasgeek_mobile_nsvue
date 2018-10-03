@@ -13,6 +13,16 @@
       "version": "4.2.0"
     }
   },
+  "scripts": {
+    "clean-run:android": "tns run android --bundle --clean",
+    "clean-run:ios": "tns run ios --bundle --clean",
+    "run:android": "tns run android --bundle",
+    "run:ios": "tns run ios --bundle",
+    "watch:android": "tns run android --bundle --hmr",
+    "watch:ios": "tns run ios --bundle --hmr",
+    "build:android": "tns build android --bundle --production",
+    "build:ios": "tns build ios --bundle --production"
+  },
   "dependencies": {
     "@vue/devtools": "5.0.0-beta.3",
     "nativescript-socket.io": "^0.9.0",
@@ -42,6 +52,7 @@
     "node-sass": "^4.9.2",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.1.0",
+    "tns-platform-declarations": "^4.2.1",
     "ts-loader": "^5.2.1",
     "tslib": "^1.9.3",
     "typescript": "^3.1.1",

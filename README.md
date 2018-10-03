@@ -2,18 +2,21 @@
 
 > HasGeek Mobile App
 
-## Usage
+## Development
 
 ``` bash
 # Install dependencies
-npm install
+yarn install -D
 
-# Build for production
-tns build <platform> --bundle
+# Build for production (minified)
+yarn build:android
+yarn build:ios
 
-# Build, watch for changes and debug the application
-tns debug <platform> --bundle
+# Run Debug (with Live Reload)
+yarn run:android
+yarn run:ios
 
-# Build, watch for changes and run the application
-tns run <platform> --bundle
+# Build, watch with hot-reload
+yarn watch:android
+yarn watch:ios
 ```
