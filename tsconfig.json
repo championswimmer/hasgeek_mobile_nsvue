@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2015",
+    "sourceMap": true,
+    "lib": ["dom", "es2015"],
+    "importHelpers": true,
+    "strict": true,
+    "typeRoots": ["types"]
+  },
+  "include": [
+    "app",
+    "types"
+  ],
+  "exclude": [
+    "node_modules",
+    "hooks",
+    "platforms"
+  ]
+}

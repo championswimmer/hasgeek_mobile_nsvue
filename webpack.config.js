@@ -20,9 +20,11 @@ module.exports = env => {
         "tns-core-modules/ui/frame/activity",
     ];
 
-    const platform = env && (env.android && "android" || env.ios && "ios");
+    let platform = env && (env.android && "android" || env.ios && "ios");
     if (!platform) {
-        throw new Error("You need to provide a target platform!");
+        // Not breaking on this error so Webstorm can give path resolution
+        console.error(Error("You need to provide a target platform! Using Android fallback"))
+        platform = "android"
     }
 
     const platforms = ["ios", "android"];
@@ -83,7 +85,7 @@ module.exports = env => {
             globalObject: "global",
         },
         resolve: {
-            extensions: [".vue", ".js", ".scss", ".css"],
+            extensions: [".vue", ".js", ".ts", ".scss", ".css"],
             // Resolve {N} system modules from tns-core-modules
             modules: [
                 resolve(__dirname, "node_modules/tns-core-modules"),
@@ -183,6 +185,14 @@ module.exports = env => {
                         { loader: "css-loader", options: { minimize: false, url: false } },
                         "sass-loader",
                     ],
+                },
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules|vue\/src/,
+                    loader: "ts-loader",
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/]
+                    }
                 },
                 {
                     test: /\.js$/,
