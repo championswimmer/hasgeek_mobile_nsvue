@@ -1,0 +1,29 @@
+// Import colors
+@import '~nativescript-theme-core/scss/skins/purple/index';
+
+
+// Override our own colors
+@import 'styles/hasgeek';
+
+$ab-background: $hg-purple;
+$accent: $hg-orange;
+$secondary: $hg-orange;
+$btn-color: $accent;
+
+
+
+
+// NativeScript core theme
+// @see https://docs.nativescript.org/ui/theme
+@import '~nativescript-theme-core/scss/index';
+
+// Global SCSS styling
+// @see https://docs.nativescript.org/ui/styling
+
+* {
+  font-family: $hg-font-family;
+}
+
+.mdi {
+  font-family: 'MaterialIcons', 'Material Icons', 'MaterialIcons-Regular';
+}
