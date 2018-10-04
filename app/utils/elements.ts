@@ -1,5 +1,5 @@
 import {CardView} from 'nativescript-cardview'
-import Vue from "nativescript-vue"
+import * as Vue from "nativescript-vue"
 import {PullToRefresh} from 'nativescript-pulltorefresh'
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer'
 import {BottomNavigation, BottomNavigationTab} from 'nativescript-bottom-navigation'

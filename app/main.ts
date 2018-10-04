@@ -13,7 +13,7 @@ import {sync} from 'vuex-router-sync'
 import 'nativescript-platform-css'
 import './styles.scss'
 import App from './App.vue'
-import {fonticon, TNSFontIcon} from 'nativescript-fonticon'
+import { fonticon, TNSFontIcon } from 'nativescript-fonticon/nativescript-fonticon'
 import {exit} from 'nativescript-exit'
 
 import router from '@/router'
@@ -51,7 +51,7 @@ router.replace('/home')
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h('frame', [h(App)])
 }).$start()
 
 /*
@@ -72,7 +72,7 @@ if (application.android) {
   registerExitOnDestroy()
 
   application.android.on(
-    AndroidApplication.activityBackPressedEvent,
+    'activityBackPressed',
     (data: AndroidActivityBackPressedEventData) => {
       if (router.currentRoute.path.split('/').length > 2) {
         router.back()

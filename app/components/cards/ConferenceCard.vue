@@ -45,7 +45,7 @@
 <script lang="ts">
   import {Vue, Component, Prop} from 'vue-property-decorator'
   import * as HG from '../../models/HasGeekAPI'
-  import {fonticon} from 'nativescript-fonticon'
+  import {fonticon} from 'nativescript-fonticon/nativescript-fonticon'
   import {openWebView} from 'nativescript-awesome-webview'
   import router from '../../router'
 

@@ -7,7 +7,7 @@ import UserAuth from '@/store/modules/UserAuth'
 
 @Module
 export default class TalkFunnelSpace extends VuexModule {
-  space: TF.Space = null
+  space: TF.Space | null = null
   proposals: TF.Proposal[] = []
   venues: TF.Venue[] = []
   rooms: TF.Room[] = []

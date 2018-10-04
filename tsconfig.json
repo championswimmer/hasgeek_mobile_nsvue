@@ -5,11 +5,19 @@
     "sourceMap": true,
     "lib": ["dom", "es2015"],
     "importHelpers": true,
-    "strict": true,
+    "noEmitHelpers": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
     "types": ["node"],
     "typeRoots": ["types"],
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["app/*"]
+    }
   },
   "include": [
     "app",

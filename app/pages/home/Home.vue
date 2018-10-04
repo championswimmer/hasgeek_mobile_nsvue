@@ -1,7 +1,7 @@
 <template>
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
     <GridLayout id="logo-tagline-container" rows="auto,auto,*" columns="*,*,*">
-      <Image ref="logo" id="logo-image" src="~/images/logo.png" row="0" col="0" colSpan="1" rowSpan="2"></Image>
+      <Image ref="logo" id="logo-image" src="~/assets/images/logo.png" row="0" col="0" colSpan="1" rowSpan="2"></Image>
       <Label ref="tagline" id="tagline" row="0" col="1" colSpan="2" rowSpan="2" textWrap="true">
         <FormattedString textWrap="true">
           <Span class="orange">Hello! </Span>
