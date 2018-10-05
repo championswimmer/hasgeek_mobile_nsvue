@@ -1,5 +1,5 @@
 import {Color} from '../HasGeekAPI'
-import {Entity} from 'typeorm'
+import {Entity} from 'typeorm/browser'
 import {BaseEntity, Column, PrimaryColumn} from 'typeorm/browser'
 
 @Entity()

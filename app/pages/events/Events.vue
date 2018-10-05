@@ -25,7 +25,7 @@
       openWebView({url: event.url})
     }
     get events(): Event[] {
-      return store.state.hgapi.events
+      return (store.state as any).hgapi.events
     }
     async reloadEvents(pullEvent?: {object: PullToRefresh}) {
       await store.dispatch('refreshEvents')
