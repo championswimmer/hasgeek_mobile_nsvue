@@ -12,7 +12,7 @@ import {sync} from 'vuex-router-sync'
 import 'nativescript-platform-css'
 import './styles.scss'
 import App from './App.vue'
-import { fonticon, TNSFontIcon } from 'nativescript-fonticon/nativescript-fonticon'
+import { fonticon, TNSFontIcon } from 'nativescript-fonticon'
 import {exit} from 'nativescript-exit'
 
 import router from '@/router'
@@ -22,9 +22,9 @@ import {registerLoginHandler} from '@/utils/login'
 import {registerExitOnDestroy} from '@/utils/app-lifecycle'
 
 // Prints all icon classes loaded
-// TNSFontIcon.debug = true;
+TNSFontIcon.debug = true;
 TNSFontIcon.paths = {
-  'mdi': './material-design-icons.css'
+  'mdi': './assets/material-design-icons.css'
 }
 TNSFontIcon.loadCss()
 Vue.filter('fonticon', fonticon)

@@ -21,7 +21,7 @@
               @tap="openLink(conference.url)"
               :style="{backgroundColor: conference.color.primary.toString()}">
             <FormattedString>
-              <Span class="mdi" :text="icon('mdi-confirmation-number')"></Span>
+              <Span class="mdi" :text="'mdi-confirmation-number' | fonticon"></Span>
               <Span class="text" text="Tickets"></Span>
             </FormattedString>
           </Button>
@@ -30,7 +30,7 @@
               @tap="openLink(conference.funnel)"
               :style="{backgroundColor: conference.color.primary.toString()}">
             <FormattedString>
-              <Span class="mdi" :text="icon('mdi-description')"></Span>
+              <Span class="mdi" :text="'mdi-description' | fonticon"></Span>
               <Span class="text" text="Proposals"></Span>
             </FormattedString>
           </Button>
@@ -45,7 +45,7 @@
 <script lang="ts">
   import {Vue, Component, Prop} from 'vue-property-decorator'
   import * as HG from '../../models/HasGeekAPI'
-  import {fonticon} from 'nativescript-fonticon/nativescript-fonticon'
+  // import {fonticon} from 'nativescript-fonticon'
   import {openWebView} from 'nativescript-awesome-webview'
   import router from '../../router'
 
@@ -53,10 +53,10 @@
   export default class ConferenceCard extends Vue {
     @Prop(Object) conference: HG.Conference
 
-    icon(icName: string) {
-      try {return fonticon(icName)}
-      catch (e) {return ''}
-    }
+    // icon(icName: string) {
+    //   try {return fonticon(icName)}
+    //   catch (e) {return ''}
+    // }
     openLink(link: string) {
       openWebView({
         url: link,

@@ -29,7 +29,7 @@
         <ListView for="item in topNavItems">
           <v-template>
             <StackLayout @tap="goToPage(item.page)" orientation="horizontal" class="sidedrawer-list-group">
-              <Label class="mdi" >{{fonticon(item.icon)}}</Label>
+              <Label class="mdi" :text="item.icon | fonticon" ></Label>
               <Label :text="item.text"></Label>
             </StackLayout>
           </v-template>
@@ -43,7 +43,7 @@
   </Page>
 </template>
 <script>
-  import {fonticon} from 'nativescript-fonticon'
+  // import {fonticon} from 'nativescript-fonticon'
   import NavDrawerHeader from './components/navdrawer/NavDrawerHeader.vue'
   export default {
     components: {NavDrawerHeader},
@@ -65,10 +65,10 @@
       }
     },
     methods: {
-      fonticon(icName) {
-        try {return fonticon(icName)}
-        catch (e) {return ''}
-      },
+      // fonticon(icName) {
+      //   try {return fonticon(icName)}
+      //   catch (e) {return ''}
+      // },
       goBack() {
         this.$router.back()
       },
