@@ -1,7 +1,7 @@
 <template>
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
     <PullToRefresh id="refresh" @refresh="reloadEvents">
-      <ListView id="event-list" separatorColor="transparent" ref="eventList" for="event in events">
+      <ListView rowHeight="200" id="event-list" separatorColor="transparent" ref="eventList" for="event in events">
         <v-template>
           <EventCard @tap="openEvent(event)" :event="event"></EventCard>
         </v-template>

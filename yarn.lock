@@ -1190,10 +1190,10 @@ browserify-zlib@^0.2.0:
     pako "~1.0.5"
 
 browserslist@^4.1.0:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.1.2.tgz#632feb46d1cbdd6bb1a6eb660eff68f2345ae7e7"
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.2.0.tgz#3e5e5edf7fa9758ded0885cf88c1e4be753a591c"
   dependencies:
-    caniuse-lite "^1.0.30000888"
+    caniuse-lite "^1.0.30000889"
     electron-to-chromium "^1.3.73"
     node-releases "^1.0.0-alpha.12"
 
@@ -1310,7 +1310,7 @@ camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
 
-caniuse-lite@^1.0.30000888:
+caniuse-lite@^1.0.30000889:
   version "1.0.30000889"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000889.tgz#53e266c83e725ad3bd2e4a3ea76d5031a8aa4c3e"
 
@@ -1899,8 +1899,8 @@ electron-download@^3.0.1:
     sumchecker "^1.2.0"
 
 electron-to-chromium@^1.3.73:
-  version "1.3.73"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.73.tgz#aa67787067d58cc3920089368b3b8d6fe0fc12f6"
+  version "1.3.74"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.74.tgz#443f60655e0de630491ca4e48e4436bc375debd1"
 
 electron@1.7.11:
   version "1.7.11"
@@ -3591,9 +3591,9 @@ nativescript-floatingactionbutton@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/nativescript-floatingactionbutton/-/nativescript-floatingactionbutton-4.1.4.tgz#fca32b8c6dab21b02bc2088da2752957b38a9fa0"
 
-nativescript-fonticon@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/nativescript-fonticon/-/nativescript-fonticon-2.0.0.tgz#d28dafeef58b425924a697d0b12e26b150cbaedf"
+nativescript-fonticon@1.1.1:
+  version "1.1.1"
+  resolved "http://registry.npmjs.org/nativescript-fonticon/-/nativescript-fonticon-1.1.1.tgz#1ff981e15dbb4382efeee278739217b931c11dcc"
 
 nativescript-globalevents@latest:
   version "1.2.2"
@@ -3651,7 +3651,7 @@ nativescript-urlhandler@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/nativescript-urlhandler/-/nativescript-urlhandler-1.2.2.tgz#1d300bfd87aec602b5440e6f878420e280539d43"
 
-nativescript-vue-devtools@^1.0.0:
+nativescript-vue-devtools@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.1.0.tgz#dc2ce1755dd2f28cc542b25da79639ec8be6ffab"
 
@@ -5017,8 +5017,8 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
 spdx-correct@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.0.1.tgz#434434ff9d1726b4d9f4219d1004813d80639e30"
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.0.2.tgz#19bb409e91b47b1ad54159243f7312a858db3c2e"
   dependencies:
     spdx-expression-parse "^3.0.0"
     spdx-license-ids "^3.0.0"
@@ -5248,8 +5248,8 @@ terser-webpack-plugin@^1.1.0:
     worker-farm "^1.5.2"
 
 terser@^3.8.1:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-3.9.2.tgz#d139d8292eb3a23091304c934fb539d9f456fb19"
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-3.9.3.tgz#14d13207f58b7a25ba7dd11def76c9e73cca5036"
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
@@ -5814,14 +5814,14 @@ wrappy@1:
 
 ws@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-4.1.0.tgz#a979b5d7d4da68bf54efe0408967c324869a7289"
+  resolved "http://registry.npmjs.org/ws/-/ws-4.1.0.tgz#a979b5d7d4da68bf54efe0408967c324869a7289"
   dependencies:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
 
 ws@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-6.0.0.tgz#eaa494aded00ac4289d455bac8d84c7c651cef35"
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-6.1.0.tgz#119a9dbf92c54e190ec18d10e871d55c95cf9373"
   dependencies:
     async-limiter "~1.0.0"
 

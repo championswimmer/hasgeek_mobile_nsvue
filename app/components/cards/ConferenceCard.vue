@@ -5,10 +5,13 @@
         :style="{backgroundColor: conference.color.primary.toString()}"
         @tap="goTo(`/conferences/${conference.id}`)"
         class="conference-card-contents">
+      <!-- Header -->
       <StackLayout class="card-header" orientation="vertical">
         <Label class="title" textWrap="true" :text="conference.title"></Label>
         <Label class="venue" textWrap="true" :text="conference.venue"></Label>
       </StackLayout>
+
+      <!-- Content -->
       <StackLayout class="card-body" orientation="vertical">
         <StackLayout class="details" orientation="horizontal">
           <Label width="50%" class="date" :text="new Date(conference.start_time).toLocaleDateString('IN')"></Label>
@@ -45,7 +48,6 @@
 <script lang="ts">
   import {Vue, Component, Prop} from 'vue-property-decorator'
   import * as HG from '../../models/HasGeekAPI'
-  // import {fonticon} from 'nativescript-fonticon'
   import {openWebView} from 'nativescript-awesome-webview'
   import router from '../../router'
 
@@ -53,10 +55,6 @@
   export default class ConferenceCard extends Vue {
     @Prop(Object) conference: HG.Conference
 
-    // icon(icName: string) {
-    //   try {return fonticon(icName)}
-    //   catch (e) {return ''}
-    // }
     openLink(link: string) {
       openWebView({
         url: link,

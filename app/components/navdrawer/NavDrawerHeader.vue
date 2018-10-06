@@ -9,7 +9,7 @@
 
 <script lang="ts">
   import Vue from 'nativescript-vue'
-  import {Component} from 'vue-property-decorator'
+  import { Component, Emit } from 'vue-property-decorator'
   import {openWebView} from 'nativescript-awesome-webview'
 
   @Component
@@ -26,14 +26,14 @@
       return this.$store.state.userAuth.authToken == null;
 
     }
+    @Emit('close-drawer') closeDrawer() {}
 
     openLoginUrl() {
       openWebView({
         url: 'http://auth.hasgeek.com/auth?client_id=eDnmYKApSSOCXonBXtyoDQ&scope=id+email+phone+organizations+teams+com.talkfunnel:*&response_type=token',
         toolbarColor: '#816894',
       })
-      const drawer = this.$parent.$refs.drawer as any
-      drawer.nativeView.toggleDrawerState()
+      this.closeDrawer()
     }
 
   }

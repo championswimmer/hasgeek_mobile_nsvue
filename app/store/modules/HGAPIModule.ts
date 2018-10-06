@@ -33,14 +33,14 @@ export default class HGAPIModule extends VuexModule {
   @Action({commit: 'updateConferences'})
   async refreshConferences(): Promise<HG.Conference[]> {
     const conferences = await getConferences()
-    for (let conf of conferences) {
+    conferences.forEach(conf => {
       if (typeof conf.color === 'undefined') {
         conf.color = {
-          primary: '#549EAF', primary_dark: '#df5e0e', accent: '#555555'
+          primary: '#549EAF', primary_dark: '#DF5E0E', accent: '#555555'
         }
       }
-    }
-    HG.Conference.save(conferences)
+    })
+    await HG.Conference.save(conferences)
     return conferences
   }
 

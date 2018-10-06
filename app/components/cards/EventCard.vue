@@ -1,22 +1,33 @@
 <template>
-  <CardView  xmlns="http://schemas.nativescript.org/tns.xsd"
-             class="event-card" margin="10" elevation="5" radius="1">
-    <GridLayout columns="*,*" rows="auto,auto,auto" class="event-card-contents">
-      <Label row="0" col="0" colSpan="2" class="title" textWrap="true" :text="event.title"></Label>
-      <Label row="1" col="0" class="details date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
-      <Label row="1" col="1" class="details city" :text="event.city"></Label>
-      <Label row="2" col="0" colSpan="2" class="blurb" :text="event.blurb" textWrap="true"></Label>
-    </GridLayout>
+  <CardView @tap="openUrl()" class="event-card" margin="10" elevation="5" radius="1">
+    <StackLayout class="event-card-contents" minHeight="200" xmlns="http://schemas.nativescript.org/tns.xsd">
+      <Label height="80" textWrap="true" class="title" :text="event.title"></Label>
+      <StackLayout orientation="horizontal">
+        <Label width="50%" class="details date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
+        <Label width="50%" class="details city" :text="event.city"></Label>
+      </StackLayout>
+      <Label height="100" textWrap="true" class="blurb" :text="event.blurb"></Label>
+    </StackLayout>
+
   </CardView>
 </template>
 
 <script lang="ts">
 import {Vue, Component, Prop} from 'vue-property-decorator'
+import {openWebView} from 'nativescript-awesome-webview'
 import * as HG from '../../models/HasGeekAPI'
 
 @Component
 export default class EventCard extends Vue {
   @Prop(Object) event: HG.Event
+  openUrl() {
+    if (this.event.url) {
+      openWebView({
+        url: this.event.url,
+        toolbarColor: '#222222'
+      })
+    }
+  }
 }
 </script>
 

@@ -1,4 +1,5 @@
 import Vue from 'nativescript-vue'
+import VueDevtools from 'nativescript-vue-devtools'
 import {isAndroid, isIOS} from 'tns-core-modules/platform'
 import * as application from 'tns-core-modules/application'
 import {
@@ -21,8 +22,12 @@ import {registerRequiredElements} from '@/utils/elements'
 import {registerLoginHandler} from '@/utils/login'
 import {registerExitOnDestroy} from '@/utils/app-lifecycle'
 
+// if (TNS_ENV === 'development') {
+//   Vue.use(VueDevtools)
+// }
+
 // Prints all icon classes loaded
-TNSFontIcon.debug = true;
+TNSFontIcon.debug = (TNS_ENV === 'development')
 TNSFontIcon.paths = {
   'mdi': './assets/material-design-icons.css'
 }
@@ -39,7 +44,7 @@ registerLoginHandler()
 registerRequiredElements()
 
 // Uncommment the following to see NativeScript-Vue output logs
-Vue.config.silent = false
+Vue.config.silent = (TNS_ENV === 'production')
 sync(store, router)
 router.replace('/home')
 

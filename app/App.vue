@@ -25,7 +25,7 @@
 
     <RadSideDrawer id="drawer" ref="drawer" showOverNavigation="true">
       <StackLayout class="drawer-content" ~drawerContent>
-        <NavDrawerHeader></NavDrawerHeader>
+        <NavDrawerHeader @close-drawer="closeDrawer()"></NavDrawerHeader>
         <ListView for="item in topNavItems">
           <v-template>
             <StackLayout @tap="goToPage(item.page)" orientation="horizontal" class="sidedrawer-list-group">
@@ -43,7 +43,6 @@
   </Page>
 </template>
 <script>
-  // import {fonticon} from 'nativescript-fonticon'
   import NavDrawerHeader from './components/navdrawer/NavDrawerHeader.vue'
   export default {
     components: {NavDrawerHeader},
@@ -65,15 +64,14 @@
       }
     },
     methods: {
-      // fonticon(icName) {
-      //   try {return fonticon(icName)}
-      //   catch (e) {return ''}
-      // },
       goBack() {
         this.$router.back()
       },
       goToPage(page) {
         this.$router.push(page)
+        this.closeDrawer()
+      },
+      closeDrawer() {
         this.$refs.drawer.nativeView.closeDrawer()
       }
     },
