@@ -33,7 +33,7 @@
       this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
       console.log(this.conference.funnel)
       funnelSpace.setFunnelUrl(this.conference.funnel)
-      await funnelSpace.fetchTalkFunnelSpace()
+      await funnelSpace.fetchTalkFunnelSpace(this.conference.funnel)
 
     }
     getBottomBarPage(index: number) {
