@@ -49,8 +49,8 @@
     data() {return {
       topNavItems: [
         {icon: 'mdi-home', text: 'Home', page: '/home'},
-        {icon: 'mdi-date-range', text: 'Events', page: '/events'},
-        {icon: 'mdi-nature-people', text: 'Conferences', page: '/conferences'}
+        {icon: 'mdi-calendar-multiselect', text: 'Events', page: '/events'},
+        {icon: 'mdi-account-group', text: 'Conferences', page: '/conferences'}
       ]
     }},
     computed: {

@@ -1,0 +1,106 @@
+.mdi-blank:before {
+    content: "\uF68C";
+    visibility: hidden;
+}
+
+.mdi-18.mdi-set, .mdi-18px.mdi:before {
+    font-size: 18;
+}
+
+.mdi-24.mdi-set, .mdi-24px.mdi:before {
+    font-size: 24;
+}
+
+.mdi-36.mdi-set, .mdi-36px.mdi:before {
+    font-size: 36;
+}
+
+.mdi-48.mdi-set, .mdi-48px.mdi:before {
+    font-size: 48;
+}
+
+.mdi-dark:before {
+    color: rgba(0, 0, 0, 0.54);
+}
+.mdi-dark.mdi-inactive:before {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.mdi-light:before {
+    color: white;
+}
+.mdi-light.mdi-inactive:before {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+.mdi-rotate-45:before {
+    transform: rotate(45deg);
+}
+
+.mdi-rotate-90:before {
+    transform: rotate(90deg);
+}
+
+.mdi-rotate-135:before {
+    transform: rotate(135deg);
+}
+
+.mdi-rotate-180:before {
+    transform: rotate(180deg);
+}
+
+.mdi-rotate-225:before {
+    transform: rotate(225deg);
+}
+
+.mdi-rotate-270:before {
+    transform: rotate(270deg);
+}
+
+.mdi-rotate-315:before {
+    transform: rotate(315deg);
+}
+
+.mdi-flip-h:before {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.mdi-flip-v:before {
+    -webkit-transform: scaleY(-1);
+    -moz-transform: scaleY(-1);
+    -ms-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.mdi-spin:before {
+    -webkit-animation: mdi-spin 2s;
+    -o-animation: mdi-spin 2s;
+    animation: mdi-spin 2s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes mdi-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+@keyframes mdi-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}

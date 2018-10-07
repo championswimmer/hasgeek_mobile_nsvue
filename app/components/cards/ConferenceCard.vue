@@ -1,8 +1,8 @@
 <template>
   <CardView  xmlns="http://schemas.nativescript.org/tns.xsd"
-             class="conference-card" margin="10" elevation="5" radius="1">
+             class="conference-card" margin="10" elevation="5" radius="3">
     <StackLayout
-        :style="{backgroundColor: conference.color.primary.toString()}"
+        :style="styleBgColorPrimary"
         @tap="goTo(`/conferences/${conference.id}`)"
         class="conference-card-contents">
       <!-- Header -->
@@ -22,18 +22,18 @@
           <Button
               v-show="conference.url"
               @tap="openLink(conference.url)"
-              :style="{backgroundColor: conference.color.primary.toString()}">
+              :style="styleBgColorPrimary">
             <FormattedString>
-              <Span class="mdi" :text="'mdi-confirmation-number' | fonticon"></Span>
+              <Span class="mdi" :text="'mdi-ticket' | fonticon"></Span>
               <Span class="text" text="Tickets"></Span>
             </FormattedString>
           </Button>
           <Button
               v-show="conference.funnel"
               @tap="openLink(conference.funnel)"
-              :style="{backgroundColor: conference.color.primary.toString()}">
+              :style="styleBgColorPrimary">
             <FormattedString>
-              <Span class="mdi" :text="'mdi-description' | fonticon"></Span>
+              <Span class="mdi" :text="'mdi-filter-outline' | fonticon"></Span>
               <Span class="text" text="Proposals"></Span>
             </FormattedString>
           </Button>
@@ -54,6 +54,9 @@
   @Component
   export default class ConferenceCard extends Vue {
     @Prop(Object) conference: HG.Conference
+    styleBgColorPrimary = {
+      backgroundColor: this.conference.color.primary.toString()
+    }
 
     openLink(link: string) {
       openWebView({
@@ -75,6 +78,9 @@
   .conference-card {
     padding: 0;
     background-color: #fff;
+    StackLayout {
+      border-radius: 3;
+    }
   }
   .conference-card-contents {
     padding: 5;
@@ -109,7 +115,7 @@
   Button {
     margin: 5;
     padding: 0;
-    border-radius: 2;
+    border-radius: 4;
     height: 40;
     width: auto;
     color: white;

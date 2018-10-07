@@ -16,6 +16,7 @@ const router = new VueRouter(<RouterOptions>{
   routes: [
     {
       path: '/home',
+      name:'home',
       component: Home,
       meta: {
         title: 'Home',
@@ -24,31 +25,35 @@ const router = new VueRouter(<RouterOptions>{
     },
     {
       path: '/events',
+      name: 'events',
       component: Events,
       meta: {
         title: 'Events',
-        icon: 'mdi-date-range'
+        icon: 'mdi-calendar-multiselect'
       }
     },
     {
       path: '/conferences',
+      name: 'conferences',
       component: Conferences,
       meta: {
         title: 'Conferences',
-        icon: 'mdi-nature-people'
+        icon: 'mdi-account-group'
       }
     },
     {
       path: '/conferences/:confId',
+      name: 'conferences_confId',
       component: Conference,
       meta: {
         title: 'Conference',
-        icon: 'mdi-nature-people'
+        icon: 'mdi-account-group'
       },
       children: [
-        {path: '', redirect: 'info'},
+        {path: '*', redirect: 'info'},
         {
           path: 'info',
+          name: 'conferences_confId_info',
           component: Info,
           meta: {
             title: 'Information'
@@ -56,6 +61,7 @@ const router = new VueRouter(<RouterOptions>{
         },
         {
           path: 'schedule',
+          name: 'conferences_confId_schedule',
           component: Schedule,
           meta: {
             title: 'Schedule'
@@ -63,6 +69,7 @@ const router = new VueRouter(<RouterOptions>{
         },
         {
           path: 'contacts',
+          name: 'conferences_confId_contacts',
           component: Contacts,
           meta: {
             title: 'Contacts'
