@@ -6,9 +6,6 @@ import {createConnection} from 'typeorm/browser'
 import * as HG from '@/models/HasGeekAPI'
 import * as TF from '@/models/TalkFunnelAPI'
 import hgapi from './modules/HGAPIModule'
-import appSession from './modules/AppSession'
-import userAuth from './modules/UserAuth'
-import funnelSpace from './modules/TalkFunnelSpace'
 
 Vue.use(Vuex);
 
@@ -27,13 +24,8 @@ const store = new Vuex.Store({
   state: {},
   modules: {
     hgapi,
-    appSession,
-    userAuth,
-    funnelSpace
   }
 });
-store.commit('retrieveUser')
 
-Vue.prototype.$store = store;
 export default store
 

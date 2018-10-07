@@ -16,15 +16,14 @@
 
 </template>
 <script lang="ts">
-  import * as settings from 'tns-core-modules/application-settings'
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
-  import store from '@/store'
+  import appSession from '@/store/modules/AppSession'
 
   @Component({})
   export default class Home extends Vue {
     message =  'THIS IS HOME PAGE'
-    get shouldAnimate() {return this.$store.state.appSession.shouldAnimateHome}
+    get shouldAnimate() {return appSession.shouldAnimateHome}
 
     mounted() {
       if (this.shouldAnimate) {
@@ -32,7 +31,7 @@
         const tagline = (this.$refs.tagline as Element)
         logo.setAttribute('class', logo.getAttribute('class') + ' shrinkanim')
         tagline.setAttribute('class', tagline.getAttribute('class') + ' slideanim')
-        this.$store.commit('homeAnimated')
+        appSession.homeAnimated()
       }
     }
   }

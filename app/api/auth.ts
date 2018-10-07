@@ -1,5 +1,5 @@
 import {getJSON} from 'tns-core-modules/http'
-import store from '@/store'
+import userAuth from '@/store/modules/UserAuth'
 import {path} from 'tns-core-modules/file-system'
 
 
@@ -11,6 +11,6 @@ export const getUser = async () =>
     method: 'GET',
     url: path.join(BASE_URL, PATH_ID),
     headers: {
-      'Authorization': `Bearer ${store.state.userAuth.authToken}`
+      'Authorization': `Bearer ${userAuth.authToken}`
     }
   })

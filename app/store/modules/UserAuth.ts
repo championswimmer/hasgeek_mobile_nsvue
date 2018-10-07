@@ -1,10 +1,11 @@
-import {Module, Mutation, VuexModule} from 'vuex-module-decorators'
+import { getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators'
 import User from '@/models/User'
 import * as settings from 'tns-core-modules/application-settings'
+import store from '@/store'
 
-@Module
-export default class UserAuth extends VuexModule {
-  authToken: string
+@Module({dynamic: true, name: 'userAuth', namespaced: true, store})
+class UserAuth extends VuexModule {
+  authToken: string | null
   user: User
 
   @Mutation
@@ -25,3 +26,8 @@ export default class UserAuth extends VuexModule {
     this.user = JSON.parse(settings.getString('user', null))
   }
 }
+
+const userAuth: UserAuth = getModule(UserAuth)
+userAuth.retrieveUser()
+
+export default userAuth

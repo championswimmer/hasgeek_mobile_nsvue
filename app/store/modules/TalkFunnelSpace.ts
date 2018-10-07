@@ -1,12 +1,12 @@
-import {Action, Mutation, Module, VuexModule, MutationAction} from 'vuex-module-decorators'
+import { Action, Mutation, Module, VuexModule, MutationAction, getModule } from 'vuex-module-decorators'
 import {getJSON} from 'tns-core-modules/http'
 import * as TF from '@/models/TalkFunnelAPI'
-import {Store} from 'vuex'
 import TalkFunnelClient from '@/api/talkfunnel'
-import UserAuth from '@/store/modules/UserAuth'
+import store from '@/store'
+import userAuth from '@/store/modules/UserAuth'
 
-@Module
-export default class TalkFunnelSpace extends VuexModule {
+@Module({dynamic: true, name: 'funnelSpace', namespaced: true, store})
+class TalkFunnelSpace extends VuexModule {
   space: TF.Space | null = null
   proposals: TF.Proposal[] = []
   venues: TF.Venue[] = []
@@ -20,10 +20,10 @@ export default class TalkFunnelSpace extends VuexModule {
   }
 
   @MutationAction({mutate: ['space', 'proposals', 'venues', 'rooms']})
-  async fetchTalkFunnelSpace(this: {state: TalkFunnelSpace, rootState: any}) {
+  async fetchTalkFunnelSpace() {
     console.log('===== = = = = = fetchTalkFunnelSpace')
-    console.log(this.rootState.userAuth.authToken)
-    console.log(this.state.funnelUrl)
+    console.log(userAuth.authToken)
+    console.log(this.funnelUrl)
 
     // const client = new TalkFunnelClient(this.state.funnelUrl, this.rootState.userAuth.authToken)
     // const funnelSpace = await client.getEventData()
@@ -33,3 +33,6 @@ export default class TalkFunnelSpace extends VuexModule {
     // return funnelSpace
   }
 }
+
+const funnelSpace = getModule(TalkFunnelSpace)
+export default funnelSpace

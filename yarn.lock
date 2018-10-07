@@ -5661,9 +5661,9 @@ vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
 
-vuex-module-decorators@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-0.7.1.tgz#8af19fa9de3201d6d28be17386b34bd5e7ffca6c"
+vuex-module-decorators@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-0.8.0.tgz#8c7d6526942d3496a2c28365889648f6f09b1e3d"
 
 vuex-router-sync@^5.0.0:
   version "5.0.0"

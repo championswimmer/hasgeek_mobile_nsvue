@@ -19,6 +19,7 @@
   import {Component} from 'vue-property-decorator'
   import {OnTabSelectedEventData} from 'nativescript-bottom-navigation'
   import * as HG from '@/models/HasGeekAPI'
+  import funnelSpace from '@/store/modules/TalkFunnelSpace'
 
   @Component({})
   export default class Conference extends Vue {
@@ -31,8 +32,8 @@
     async mounted () {
       this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
       console.log(this.conference.funnel)
-      this.$store.commit('setFunnelUrl', this.conference.funnel)
-      this.$store.dispatch('fetchTalkFunnelSpace')
+      funnelSpace.setFunnelUrl(this.conference.funnel)
+      await funnelSpace.fetchTalkFunnelSpace()
 
     }
     getBottomBarPage(index: number) {

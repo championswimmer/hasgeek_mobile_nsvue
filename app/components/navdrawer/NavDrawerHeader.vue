@@ -11,19 +11,20 @@
   import Vue from 'nativescript-vue'
   import { Component, Emit } from 'vue-property-decorator'
   import {openWebView} from 'nativescript-awesome-webview'
+  import userAuth from '@/store/modules/UserAuth'
 
   @Component
   export default class NavDrawerHeader extends Vue {
 
     get fullname () {
-      if (this.$store.state.userAuth.user) {
-        return this.$store.state.userAuth.user.fullname
+      if (userAuth.user) {
+        return userAuth.user.fullname
       } else {
         return 'Guest'
       }
     }
     get showLogin() {
-      return this.$store.state.userAuth.authToken == null;
+      return userAuth.authToken == null;
 
     }
     @Emit('close-drawer') closeDrawer() {}

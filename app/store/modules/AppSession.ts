@@ -1,7 +1,8 @@
-import {VuexModule, Module, Mutation} from 'vuex-module-decorators'
+import { VuexModule, Module, Mutation, getModule } from 'vuex-module-decorators'
+import store from '..'
 
-@Module
-export default class AppSession extends VuexModule {
+@Module({dynamic: true, name: 'appSession', store})
+class AppSession extends VuexModule {
   shouldAnimateHome = true
 
   @Mutation
@@ -9,3 +10,4 @@ export default class AppSession extends VuexModule {
     this.shouldAnimateHome = false
   }
 }
+export default getModule(AppSession)
