@@ -3591,9 +3591,9 @@ nativescript-floatingactionbutton@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/nativescript-floatingactionbutton/-/nativescript-floatingactionbutton-4.1.4.tgz#fca32b8c6dab21b02bc2088da2752957b38a9fa0"
 
-nativescript-fonticon@1.1.1:
-  version "1.1.1"
-  resolved "http://registry.npmjs.org/nativescript-fonticon/-/nativescript-fonticon-1.1.1.tgz#1ff981e15dbb4382efeee278739217b931c11dcc"
+nativescript-fonticon@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/nativescript-fonticon/-/nativescript-fonticon-2.0.0.tgz#d28dafeef58b425924a697d0b12e26b150cbaedf"
 
 nativescript-globalevents@latest:
   version "1.2.2"

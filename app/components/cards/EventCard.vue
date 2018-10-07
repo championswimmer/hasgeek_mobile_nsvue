@@ -71,14 +71,15 @@ export default class EventCard extends Vue {
       font-size: 14pt;
     }
     .links {
-      background-color: $hg-orange;
+      background-color: $hg-purple;
       color: white;
       font-weight: 900;
-      font-size: 16pt;
+      font-size: 18pt;
       border-radius: 3;
       height: auto;
       width: auto;
       padding: 5;
+      margin: 5;
     }
   }
 

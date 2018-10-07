@@ -36,7 +36,7 @@
         </ListView>
       </StackLayout>
       <StackLayout class="main-container" ~mainContent>
-        <router-view/>
+        <router-view></router-view>
       </StackLayout>
     </RadSideDrawer>
 

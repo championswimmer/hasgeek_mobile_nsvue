@@ -13,7 +13,7 @@ import {sync} from 'vuex-router-sync'
 import 'nativescript-platform-css'
 import './styles.scss'
 import App from './App.vue'
-import { fonticon, TNSFontIcon } from 'nativescript-fonticon'
+import { fonticon, TNSFontIcon } from 'nativescript-fonticon/nativescript-fonticon'
 import {exit} from 'nativescript-exit'
 
 import router from '@/router'

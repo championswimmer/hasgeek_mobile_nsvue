@@ -6,10 +6,11 @@
         @tap="goTo(`/conferences/${conference.id}`)"
         class="conference-card-contents">
       <!-- Header -->
-      <StackLayout class="card-header" orientation="vertical">
-        <Label class="title" textWrap="true" :text="conference.title"></Label>
-        <Label class="venue" textWrap="true" :text="conference.venue"></Label>
-      </StackLayout>
+      <DockLayout class="card-header">
+        <Label dock="right" class="mdi" :text="'mdi-chevron-right-box' | fonticon"></Label>
+        <Label dock="top" class="title" textWrap="true" :text="conference.title"></Label>
+        <Label dock="bottom" class="venue" textWrap="true" :text="conference.venue"></Label>
+      </DockLayout>
 
       <!-- Content -->
       <StackLayout class="card-body" orientation="vertical">
@@ -33,7 +34,7 @@
               @tap="openLink(conference.funnel)"
               :style="styleBgColorPrimary">
             <FormattedString>
-              <Span class="mdi" :text="'mdi-filter-outline' | fonticon"></Span>
+              <Span class="mdi" :text="'mdi-filter' | fonticon"></Span>
               <Span class="text" text="Proposals"></Span>
             </FormattedString>
           </Button>
@@ -88,6 +89,9 @@
   .card-header {
     padding: 10;
     color: white;
+    .mdi {
+      font-size: 24pt;
+    }
   }
   .card-body {
     background-color: white;

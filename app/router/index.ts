@@ -50,7 +50,7 @@ const router = new VueRouter(<RouterOptions>{
         icon: 'mdi-account-group'
       },
       children: [
-        {path: '*', redirect: 'info'},
+        {path: '', redirect: 'info'},
         {
           path: 'info',
           name: 'conferences_confId_info',

@@ -10,10 +10,11 @@
 
   @Component
   export default class Info extends Vue {
-    // confId = ''
-    // async mounted () {
-    //   this.confId = this.$route.params['confId']
-    // }
+    confId = ''
+    mounted () {
+      this.confId = this.$route.params['confId']
+      console.log(this.confId)
+    }
 
   }
 </script>
