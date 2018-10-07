@@ -5,7 +5,6 @@ import {createConnection} from 'typeorm/browser'
 
 import * as HG from '@/models/HasGeekAPI'
 import * as TF from '@/models/TalkFunnelAPI'
-import hgapi from './modules/HGAPIModule'
 
 Vue.use(Vuex);
 
@@ -20,12 +19,7 @@ createConnection({
 }).then((connection) => connection.synchronize(false))
   .catch(console.error)
 
-const store = new Vuex.Store({
-  state: {},
-  modules: {
-    hgapi,
-  }
-});
+const store = new Vuex.Store({});
 
 export default store
 

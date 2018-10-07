@@ -1,10 +1,10 @@
-import {Action, Mutation, Module, VuexModule, MutationAction} from 'vuex-module-decorators'
+import { Action, Mutation, Module, VuexModule, MutationAction, getModule } from 'vuex-module-decorators'
 import * as HG from '@/models/HasGeekAPI'
-import {Store} from 'vuex'
 import {getAll, getConferences, getEvents} from '@/api/hasgeek-github'
+import store from '@/store'
 
-@Module
-export default class HGAPIModule extends VuexModule {
+@Module({dynamic: true, name: 'hgapi', namespaced: true, store})
+class HGAPIModule extends VuexModule {
   conferences: Array<HG.Conference> = []
   events: Array<HG.Event> = []
 
@@ -22,10 +22,10 @@ export default class HGAPIModule extends VuexModule {
   }
 
   @Action({commit: 'updateConferences'})
-  async loadConferences(this: Store<any>): Promise<HG.Conference[]> {
+  async loadConferences(): Promise<HG.Conference[]> {
     const confs = await HG.Conference.find({order: {'start_time': 'ASC'}})
     if (confs.length == 0) {
-      this.dispatch('refreshConferences')
+      this.refreshConferences()
     }
     return confs
   }
@@ -36,7 +36,9 @@ export default class HGAPIModule extends VuexModule {
     conferences.forEach(conf => {
       if (typeof conf.color === 'undefined') {
         conf.color = {
-          primary: '#549EAF', primary_dark: '#DF5E0E', accent: '#555555'
+          primary: '#549EAF',
+          primary_dark: '#DF5E0E',
+          accent: '#555555'
         }
       }
     })
@@ -45,10 +47,10 @@ export default class HGAPIModule extends VuexModule {
   }
 
   @Action({commit: 'updateEvents'})
-  async loadEvents(this: Store<any>): Promise<HG.Event[]> {
+  async loadEvents(): Promise<HG.Event[]> {
     const events = await HG.Event.find()
     if (events.length == 0) {
-      this.dispatch('refreshEvents')
+      this.refreshEvents()
     }
     return events
   }
@@ -62,3 +64,6 @@ export default class HGAPIModule extends VuexModule {
     return events
   }
 }
+
+const hgapi = getModule(HGAPIModule)
+export default hgapi

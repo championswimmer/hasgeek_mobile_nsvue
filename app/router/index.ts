@@ -3,7 +3,7 @@ import VueRouter, {RouterOptions} from 'vue-router'
 
 Vue.use(VueRouter);
 
-import  Home from '../pages/home/Home.vue';
+import Home from '../pages/home/Home.vue';
 import Events from '../pages/events/Events.vue';
 import Conferences from '../pages/conferences/Conferences.vue'
 import Conference from '../pages/conferences/Conference.vue'

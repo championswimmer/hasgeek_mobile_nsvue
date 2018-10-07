@@ -15,7 +15,7 @@
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
   import ConferenceCard from '../../components/cards/ConferenceCard'
-  import store from '@/store'
+  import hgapi from '@/store/modules/HGAPIModule'
   import * as HG from '@/models/HasGeekAPI'
   import {PullToRefresh} from 'nativescript-pulltorefresh'
   import {ListView} from 'tns-core-modules/ui/list-view'
@@ -24,17 +24,17 @@
   })
   export default class Conferences extends Vue {
     get conferences(): HG.Conference[] {
-      return store.state.hgapi.conferences
+      return hgapi.conferences
     }
     async reloadConferences(pullEvent?: {object: PullToRefresh}) {
-      await store.dispatch('refreshConferences')
+      await hgapi.refreshConferences()
       if (pullEvent) {
         pullEvent.object.refreshing = false
       }
     }
     created () {
       if (!this.conferences || this.conferences.length == 0) {
-        store.dispatch('loadConferences')
+        hgapi.loadConferences()
       }
     }
   }

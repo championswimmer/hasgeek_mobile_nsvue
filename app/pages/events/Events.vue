@@ -14,7 +14,7 @@
   import {Vue, Component} from 'vue-property-decorator'
   import {Event} from '@/models/HasGeekAPI'
   import EventCard from '@/components/cards/EventCard'
-  import store from '@/store'
+  import hgapi from '@/store/modules/HGAPIModule'
   import {PullToRefresh} from 'nativescript-pulltorefresh'
   import {openWebView} from 'nativescript-awesome-webview'
   @Component({
@@ -25,17 +25,17 @@
       openWebView({url: event.url})
     }
     get events(): Event[] {
-      return (store.state as any).hgapi.events
+      return hgapi.events
     }
     async reloadEvents(pullEvent?: {object: PullToRefresh}) {
-      await store.dispatch('refreshEvents')
+      await hgapi.refreshEvents()
       if (pullEvent) {
         pullEvent.object.refreshing = false
       }
     }
     async created() {
       if (!this.events || this.events.length == 0) {
-        await store.dispatch('loadEvents')
+        await hgapi.loadEvents()
       }
     }
   }
