@@ -72,7 +72,7 @@
     "terser-webpack-plugin": "^1.1.0",
     "tns-platform-declarations": "^4.2.1",
     "ts-loader": "^5.2.1",
-    "typeorm": "git+https://github.com/championswimmer/typeorm.git#npm_package_nativescript",
+    "typeorm": "^0.3.0-alpha.20",
     "typescript": "^3.1.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.2.6",

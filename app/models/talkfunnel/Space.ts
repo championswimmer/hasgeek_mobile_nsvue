@@ -21,6 +21,6 @@ export default class Space extends BaseEntity {
   @Column() url: string;
   @Column() website: string;
 
-  @OneToMany(type => Proposal, 'space_id')
-  proposals: Proposal[]
+  @OneToMany(type => Proposal, 'space_id', {lazy: true})
+  proposals?: Proposal[]
 }

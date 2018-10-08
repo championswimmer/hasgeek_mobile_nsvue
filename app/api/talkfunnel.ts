@@ -27,12 +27,14 @@ export default class TalkFunnelClient {
   }
 
   async getEventData(): Promise<FunnelSpaceResponse> {
+    console.log(' = = = = = = ')
     return await getJSON({
       method: 'GET',
       url: path.join(this.EVENT_BASE_URL, TalkFunnelClient.PATH_JSON),
       headers: this.HEADERS
     }) as FunnelSpaceResponse
   }
+
   async getParticipant(puk: string, key: string): Promise<Participant> {
     return await getJSON({
       method: 'POST',

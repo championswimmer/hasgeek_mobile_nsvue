@@ -28,14 +28,11 @@
     async created() {
       this.confId = this.$route.params['confId']
       console.log(this.confId)
-    }
-    async mounted () {
       this.conference = await HG.Conference.findOne(this.confId) as HG.Conference
       console.log(this.conference.funnel)
-      funnelSpace.setFunnelUrl(this.conference.funnel)
       await funnelSpace.fetchTalkFunnelSpace(this.conference.funnel)
-
     }
+
     getBottomBarPage(index: number) {
       switch(index) {
         case 0: return 'info'
