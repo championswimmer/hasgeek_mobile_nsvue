@@ -16,7 +16,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"]
+      "@/*": ["./app/*"],
+      "~/*": ["./app/*"]
     }
   },
   "include": [

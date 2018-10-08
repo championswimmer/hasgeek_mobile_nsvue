@@ -1,27 +1,28 @@
-import { Action, Mutation, Module, VuexModule, MutationAction, getModule } from 'vuex-module-decorators'
-import {getJSON} from 'tns-core-modules/http'
+import { Action, getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators'
 import * as TF from '@/models/TalkFunnelAPI'
 import TalkFunnelClient from '@/api/talkfunnel'
 import store from '@/store'
 import userAuth from '@/store/modules/UserAuth'
 
-@Module({dynamic: true, name: 'funnelSpace', namespaced: true, store})
+@Module({ dynamic: true, name: 'funnelSpace', namespaced: true, store })
 class TalkFunnelSpace extends VuexModule {
-  space: TF.Space | {title: string} = {title: ''}
+  space: TF.Space | { title: string } = { title: '' }
   // proposals: TF.Proposal[] = []
   // venues: TF.Venue[] = []
   // rooms: TF.Room[] = []
   funnelUrl: string = ''
 
-  get currentSpace () { return this.space }
+  get currentSpace() {
+    return this.space
+  }
 
   @Mutation
-  clearData () {
+  clearData() {
     this.space = { title: '' }
   }
 
   @Mutation
-  setSpace (space: TF.Space) {
+  setSpace(space: TF.Space) {
     this.space = space
   }
 

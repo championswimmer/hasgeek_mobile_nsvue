@@ -43,7 +43,6 @@ const router = new VueRouter(<RouterOptions>{
     },
     {
       path: '/conferences/:confId',
-      name: 'conferences_confId',
       component: Conference,
       meta: {
         title: 'Conference',

@@ -7,7 +7,6 @@
 <script lang="ts">
   import Vue from 'nativescript-vue'
   import {Component} from 'vue-property-decorator'
-  import * as TF from '@/models/TalkFunnelAPI'
   import funnelSpace from '@/store/modules/TalkFunnelSpace'
 
   @Component

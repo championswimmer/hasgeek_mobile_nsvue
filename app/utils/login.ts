@@ -3,9 +3,9 @@ import * as application from 'tns-core-modules/application';
 import {isAndroid, isIOS, platformNames} from 'tns-core-modules/platform'
 import * as toast from 'nativescript-toast'
 import {parseTokenHash} from '@/utils/parsers'
-import store from '@/store'
 import {getUser} from '@/api/auth'
 import User from '@/models/User'
+import userAuth from '@/store/modules/UserAuth'
 
 export function registerLoginHandler () {
 
@@ -25,10 +25,10 @@ export function registerLoginHandler () {
     }
 
     toast.makeText("Login Successful").show()
-    store.commit('setAuthToken', tokenHash.access_token)
+    userAuth.setAuthToken(tokenHash.access_token)
 
     getUser().then((data: {result: User}) => {
-      store.commit('saveUser', data.result)
+      userAuth.saveUser(data.result)
     })
 
 

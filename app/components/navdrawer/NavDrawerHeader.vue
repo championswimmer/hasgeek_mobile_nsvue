@@ -16,15 +16,15 @@
   @Component
   export default class NavDrawerHeader extends Vue {
 
+    created() {
+      userAuth.retrieveUser()
+    }
+
     get fullname () {
-      if (userAuth.user) {
-        return userAuth.user.fullname
-      } else {
-        return 'Guest'
-      }
+      return userAuth.username
     }
     get showLogin() {
-      return userAuth.authToken == null;
+      return userAuth.authToken === '';
 
     }
     @Emit('close-drawer') closeDrawer() {}
