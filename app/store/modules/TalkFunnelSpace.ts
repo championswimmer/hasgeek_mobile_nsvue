@@ -19,9 +19,7 @@ class TalkFunnelSpace extends VuexModule {
   // rooms: TF.Room[] = []
   funnelUrl: string = ''
 
-  get currentSpace() {
-    return this.space
-  }
+  get currentSpace() { return this.space }
 
 
 
@@ -29,6 +27,10 @@ class TalkFunnelSpace extends VuexModule {
   setSpace(space: TF.Space) {
     this.space = space
     this.funnelUrl = space.url
+  }
+  @Mutation
+  setVenues(venues: (TF.Venue)[]) {
+    this.venues = venues
   }
 
   @Action
@@ -40,11 +42,12 @@ class TalkFunnelSpace extends VuexModule {
     Log.d(event.space)
     // funnelSpace.space.proposals = funnelSpace.proposals
     await TF.Space.save(event.space)
-    Log.d('========== SPACE SAVED ==========')
-    this.finishLoading()
-    await TF.Venue.save(event.venues)
-    Log.d('========== VENUES SAVED ==========')
     this.setSpace(event.space)
+    Log.d('========== SPACE SAVED ==========')
+    await TF.Venue.save(event.venues)
+    this.setVenues(event.venues)
+    Log.d('========== VENUES SAVED ==========')
+    this.finishLoading()
   }
 }
 
