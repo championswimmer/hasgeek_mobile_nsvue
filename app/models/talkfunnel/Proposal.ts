@@ -18,12 +18,12 @@ export default class Proposal extends BaseEntity {
   @Column() preview_video: string;
   @Column() proposer: string;
   @Column() requirements: string;
-  @Column() section?: string;
+  @Column({nullable: true}) section?: string;
   @Column() slides: string;
-  @Column() speaker?: string;
+  @Column({nullable: true}) speaker?: string;
   @Column() submitted: Date;
   @Column() title: string;
-  @Column() type?: string;
+  @Column({nullable: true}) type?: string;
   @Column() url: string;
   @Column() votes: number;
 

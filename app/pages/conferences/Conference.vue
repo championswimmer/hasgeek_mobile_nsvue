@@ -1,6 +1,12 @@
 <template>
   <GridLayout id="conference-component" xmlns="http://schemas.nativescript.org/tns.xsd" rows="*, auto">
-    <router-view></router-view>
+    <ActivityIndicator v-show="loading"
+                       color="#df5e0e"
+                       width="200"
+                       height="200"
+                       :busy="loading">
+    </ActivityIndicator>
+    <router-view v-show="!loading"></router-view>
     <BottomNavigation activeColor="#df5e0e"
                       inactiveColor="#816894"
                       backgroundColor="white"
@@ -24,6 +30,7 @@
   @Component({})
   export default class Conference extends Vue {
     confId = ''
+    get loading () { return funnelSpace.dataState === 'loading' }
     conference: HG.Conference = null
     async created() {
       this.confId = this.$route.params['confId']

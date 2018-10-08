@@ -1,14 +1,21 @@
 import { Action, getModule, Module, Mutation, VuexModule } from 'vuex-module-decorators'
+import { Log } from '@/utils/log'
 import * as TF from '@/models/TalkFunnelAPI'
 import TalkFunnelClient from '@/api/talkfunnel'
 import store from '@/store'
 import userAuth from '@/store/modules/UserAuth'
 
+type DataState = 'loading' | 'loaded'
+
 @Module({ dynamic: true, name: 'funnelSpace', namespaced: true, store })
 class TalkFunnelSpace extends VuexModule {
-  space: TF.Space | { title: string } = { title: '' }
+  dataState: DataState = 'loading'
+  @Mutation beginLoading() { this.dataState = 'loading' }
+  @Mutation finishLoading() { this.dataState = 'loaded' }
+
+  space: TF.Space = new TF.Space()
   // proposals: TF.Proposal[] = []
-  // venues: TF.Venue[] = []
+  venues: TF.Venue[] = []
   // rooms: TF.Room[] = []
   funnelUrl: string = ''
 
@@ -16,10 +23,7 @@ class TalkFunnelSpace extends VuexModule {
     return this.space
   }
 
-  @Mutation
-  clearData() {
-    this.space = { title: '' }
-  }
+
 
   @Mutation
   setSpace(space: TF.Space) {
@@ -29,15 +33,17 @@ class TalkFunnelSpace extends VuexModule {
 
   @Action
   async fetchTalkFunnelSpace(url: string) {
-    console.log('============ FETCH =============')
-    console.log('============ CLIENT CREATING ===========')
+    this.beginLoading()
     const client = new TalkFunnelClient(url, userAuth.authToken)
-    console.log('============ CLIENT CREATED ===========')
     const event = await client.getEventData()
-    console.log('============ DATA FETCHED ===========')
-    console.log(event.space)
+    Log.d('============ DATA FETCHED ===========')
+    Log.d(event.space)
     // funnelSpace.space.proposals = funnelSpace.proposals
     await TF.Space.save(event.space)
+    Log.d('========== SPACE SAVED ==========')
+    this.finishLoading()
+    await TF.Venue.save(event.venues)
+    Log.d('========== VENUES SAVED ==========')
     this.setSpace(event.space)
   }
 }

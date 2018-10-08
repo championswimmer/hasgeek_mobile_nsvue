@@ -1,7 +1,7 @@
 import Vue from 'nativescript-vue';
 import Vuex, {Module} from 'vuex';
 
-import {createConnection} from 'typeorm/browser'
+import { createConnection, Logger } from 'typeorm/browser'
 
 import * as HG from '@/models/HasGeekAPI'
 import * as TF from '@/models/TalkFunnelAPI'

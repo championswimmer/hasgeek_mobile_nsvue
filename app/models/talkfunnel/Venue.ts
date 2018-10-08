@@ -10,11 +10,14 @@ export default class Venue extends BaseEntity {
   @Column() city: string;
   @Column() country: string;
   @Column() description: string;
-  @Column() json_url?: string;
-  @Column() latitude?: string;
-  @Column() longitude?: string;
+
+  @Column({nullable: true}) json_url?: string;
+  @Column({nullable: true}) latitude?: string;
+  @Column({nullable: true}) longitude?: string;
+
   @Column() postcode: string;
   @Column() state: string;
   @Column() title: string;
-  @Column() url?: string;
+
+  @Column({nullable: true}) url?: string;
 }
