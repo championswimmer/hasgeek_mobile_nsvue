@@ -38,6 +38,7 @@
         case 0: return 'info'
         case 1: return 'schedule'
         case 2: return 'contacts'
+        default: return 'info'
       }
     }
     onTabSelected(event: OnTabSelectedEventData) {

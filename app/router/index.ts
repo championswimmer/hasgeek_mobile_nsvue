@@ -49,7 +49,6 @@ const router = new VueRouter(<RouterOptions>{
         icon: 'mdi-account-group'
       },
       children: [
-        {path: '', redirect: 'info'},
         {
           path: 'info',
           name: 'conferences_confId_info',
@@ -74,6 +73,7 @@ const router = new VueRouter(<RouterOptions>{
             title: 'Contacts'
           }
         },
+        // { path: '*', redirect: 'info'}
       ]
     },
     {path: '*', redirect: '/home'}

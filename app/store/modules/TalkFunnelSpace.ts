@@ -24,18 +24,17 @@ class TalkFunnelSpace extends VuexModule {
   @Mutation
   setSpace(space: TF.Space) {
     this.space = space
+    this.funnelUrl = space.url
   }
 
   @Action
   async fetchTalkFunnelSpace(url: string) {
-    this.clearData()
-    console.log('===== = = = = = fetchTalkFunnelSpace')
-    console.log(userAuth.authToken)
-    console.log(url)
-    this.funnelUrl = url
-
+    console.log('============ FETCH =============')
+    console.log('============ CLIENT CREATING ===========')
     const client = new TalkFunnelClient(url, userAuth.authToken)
+    console.log('============ CLIENT CREATED ===========')
     const event = await client.getEventData()
+    console.log('============ DATA FETCHED ===========')
     console.log(event.space)
     // funnelSpace.space.proposals = funnelSpace.proposals
     await TF.Space.save(event.space)

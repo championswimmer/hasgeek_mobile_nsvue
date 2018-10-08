@@ -1,6 +1,6 @@
 <template>
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
-    <Label :text="space && space.title"></Label>
+    <Label :text="title"></Label>
   </StackLayout>
 </template>
 
@@ -12,7 +12,7 @@
   @Component
   export default class Info extends Vue {
     confId = ''
-    get space () { return funnelSpace.currentSpace }
+    get title () { return funnelSpace.currentSpace.title }
 
     mounted () {
       this.confId = this.$route.params['confId']

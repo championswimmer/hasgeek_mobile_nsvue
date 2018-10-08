@@ -27,7 +27,7 @@ export default class TalkFunnelClient {
   }
 
   async getEventData(): Promise<FunnelSpaceResponse> {
-    console.log(' = = = = = = ')
+    console.log(' = = = = = = getEventData')
     return await getJSON({
       method: 'GET',
       url: path.join(this.EVENT_BASE_URL, TalkFunnelClient.PATH_JSON),

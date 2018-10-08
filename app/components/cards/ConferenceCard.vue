@@ -3,7 +3,7 @@
              class="conference-card" margin="10" elevation="5" radius="3">
     <StackLayout
         :style="styleBgColorPrimary"
-        @tap="goTo(`/conferences/${conference.id}`)"
+        @tap="goTo(`/conferences/${conference.id}/info`)"
         class="conference-card-contents">
       <!-- Header -->
       <DockLayout class="card-header">
