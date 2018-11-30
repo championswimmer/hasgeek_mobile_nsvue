@@ -1,5 +1,14 @@
 import Session from '@/models/talkfunnel/Session'
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Timestamp } from 'typeorm/browser'
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Timestamp
+} from 'typeorm/browser'
 import Schedule from '@/models/talkfunnel/Schedule'
 
 @Entity()
@@ -14,6 +23,7 @@ export default class Slot extends BaseEntity {
   @JoinColumn({name: 'schedule_id'})
   schedule: Schedule
 
-  sessions: Session[];
+  @OneToMany(type => Session, 'slot_id', { lazy: true })
+  sessions?: Session[];
 
 }

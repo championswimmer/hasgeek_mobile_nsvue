@@ -15,7 +15,7 @@ createConnection({
   entities: [
     HG.Event, HG.Conference,
     TF.Space, TF.Venue, TF.Room,
-    TF.Proposal, TF.Slot,
+    TF.Proposal, TF.Slot, TF.Session,
     TF.Schedule
   ]
 }).then((connection) => connection.synchronize(true))
