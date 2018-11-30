@@ -17,7 +17,8 @@ class TalkFunnelSpace extends VuexModule {
   space: TF.Space = new TF.Space()
   // proposals: TF.Proposal[] = []
   venues: TF.Venue[] = []
-  // rooms: TF.Room[] = []
+  rooms: TF.Room[] = []
+  schedules: TF.Schedule[] = []
   funnelUrl: string = ''
   participants: Array<Participant> = []
 
@@ -31,9 +32,16 @@ class TalkFunnelSpace extends VuexModule {
     this.funnelUrl = space.url
   }
   @Mutation
-  setVenues(venues: (TF.Venue)[]) {
-    this.venues = venues
-  }
+  setVenues(venues: (TF.Venue)[]) { this.venues = venues }
+
+  @Mutation
+  setSchedules(schedules: (TF.Schedule)[]) { this.schedules = schedules }
+
+  @Mutation
+  addSchedule(schedule: TF.Schedule) { this.schedules.push(schedule) }
+
+  @Mutation
+  setRooms(rooms: (TF.Room)[]) { this.rooms = rooms }
 
   @Mutation
   addParticipant (participant: Participant) {
@@ -47,13 +55,32 @@ class TalkFunnelSpace extends VuexModule {
     const event = await client.getEventData()
     Log.d('============ DATA FETCHED ===========')
     Log.d(event.space)
-    // funnelSpace.space.proposals = funnelSpace.proposals
-    await TF.Space.save(event.space)
-    this.setSpace(event.space)
-    Log.d('========== SPACE SAVED ==========')
-    await TF.Venue.save(event.venues)
-    this.setVenues(event.venues)
+
+    this.setVenues(await TF.Venue.save(event.venues))
     Log.d('========== VENUES SAVED ==========')
+    this.setRooms(await TF.Room.save(event.rooms))
+    Log.d('========== ROOMS SAVED ==========')
+
+    this.setSpace(await TF.Space.save(event.space))
+    Log.d('========== SPACE SAVED ==========')
+
+    event.schedule.forEach(async (sched) => {
+      sched.space = event.space
+      await TF.Schedule.save(sched)
+      sched.slots.forEach(slot => {
+        slot.schedule = sched
+      })
+      await TF.Slot.save(sched.slots)
+    })
+    Log.d('========== SCHEDULE SAVED ==========')
+
+    event.proposals.forEach((prop) => {
+      prop.space = event.space
+    })
+
+
+
+
     this.finishLoading()
   }
 

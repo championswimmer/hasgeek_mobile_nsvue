@@ -1,5 +1,6 @@
 import Proposal from '@/models/talkfunnel/Proposal'
 import Room from '@/models/talkfunnel/Room'
+import Slot from '@/models/talkfunnel/Slot'
 import Schedule from '@/models/talkfunnel/Schedule'
 import Section from '@/models/talkfunnel/Section'
 import Space from '@/models/talkfunnel/Space'
@@ -20,6 +21,6 @@ export interface FunnelSpaceResponse {
 
 export {
   Space, Proposal,
-  Venue, Room,
+  Venue, Room, Slot,
   Schedule, Section
 }

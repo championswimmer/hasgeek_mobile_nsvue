@@ -5,11 +5,11 @@ import Venue from '@/models/talkfunnel/Venue'
 export default class Room extends BaseEntity {
   @PrimaryColumn() name: string;
 
-  @Column() bgcolor: string;
+  @Column() bgcolor: string; // TODO: fix length
   @Column() description: string;
-  @Column() json_url?: string;
+  @Column({nullable: true}) json_url?: string;
   @Column() title: string;
-  @Column() url?: string;
+  @Column({nullable: true}) url?: string;
 
   @ManyToOne(type => Venue)
   @JoinColumn({name: 'venue'})

@@ -14,9 +14,11 @@ createConnection({
   logging: true,
   entities: [
     HG.Event, HG.Conference,
-    TF.Space, TF.Venue, TF.Room, TF.Proposal
+    TF.Space, TF.Venue, TF.Room,
+    TF.Proposal, TF.Slot,
+    TF.Schedule
   ]
-}).then((connection) => connection.synchronize(false))
+}).then((connection) => connection.synchronize(true))
   .catch(console.error)
 
 const store = new Vuex.Store({});
