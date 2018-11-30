@@ -22,12 +22,12 @@ import {registerRequiredElements} from '@/utils/elements'
 import {registerLoginHandler} from '@/utils/login'
 import {registerExitOnDestroy} from '@/utils/app-lifecycle'
 
-// if (TNS_ENV === 'development') {
-//   Vue.use(VueDevtools)
-// }
+if (TNS_ENV === 'development') {
+  Vue.use(VueDevtools)
+}
 
 // Prints all icon classes loaded
-TNSFontIcon.debug = (TNS_ENV === 'development')
+// TNSFontIcon.debug = (TNS_ENV === 'development')
 TNSFontIcon.paths = {
   'mdi': './assets/material-design-icons.css'
 }

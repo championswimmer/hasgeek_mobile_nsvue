@@ -8,7 +8,7 @@
           <Label width="40%" class="details date" :text="new Date(event.start_time).toLocaleDateString('IN')"></Label>
           <Label width="30%" class="details city" :text="event.city"></Label>
           <Button width="10%" @tap="openMap()" class="mdi links" :text="'mdi-map-marker-radius' | fonticon"></Button>
-          <Button width="10%" @tap="openUrl()" class="mdi links" :text="'mdi-open-in-new' | fonticon"></Button>
+          <Button width="10%" @tap="openEventLink()" class="mdi links" :text="'mdi-open-in-new' | fonticon"></Button>
         </StackLayout>
       </StackLayout>
 
@@ -26,7 +26,7 @@ import { openUrl } from 'tns-core-modules/utils/utils'
 @Component
 export default class EventCard extends Vue {
   @Prop(Object) event: HG.Event
-  openUrl() {
+  openEventLink() {
     if (this.event.url) {
       openWebView({
         url: this.event.url,
@@ -41,7 +41,7 @@ export default class EventCard extends Vue {
         toolbarColor: '#222222'
       })
     } else {
-      openUrl(`geo://?q=${this.event.city}`)
+      openUrl(`https://maps.google.com/maps?q=${this.event.city}`)
     }
   }
 }
