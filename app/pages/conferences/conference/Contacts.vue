@@ -1,6 +1,6 @@
 <template>
   <GridLayout rows="auto,*" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <Label row="1" text="contacts"></Label>
+    <Label row="1" :text="participants.length"></Label>
     <Fab row="1" @tap="scanBarCode()" icon="res://ic_qr_scan_white"></Fab>
   </GridLayout>
 </template>
@@ -11,17 +11,24 @@
   import {BarcodeScanner} from 'nativescript-barcodescanner'
   import * as toast from 'nativescript-toast'
   import {registerExitOnDestroy, unregisterExitOnDestroy} from '../../../utils/app-lifecycle'
+  import funnelSpace from '@/store/modules/TalkFunnelSpace'
+  import Participant from '../../../models/Participant'
 
   @Component({})
   export default class Contacts extends Vue {
 
+    participants: Array<Participant> = funnelSpace.participants
+
+    async fakeScanBarCode () {
+      await funnelSpace.scanBadge('_WpCFMvbIAX6k98z')
+    }
     async scanBarCode() {
-      let scanner = new BarcodeScanner()
       /*
        * Stop the exit on destroy mechanism,
        * without which the QR Scanner can't be user-cancelled
        */
       unregisterExitOnDestroy()
+      let scanner = new BarcodeScanner()
 
       try {
         const barCode = await scanner.scan({
@@ -29,6 +36,8 @@
           orientation: 'vertical',
         })
         toast.makeText(barCode.text).show()
+        await funnelSpace.scanBadge('_WpCFMvbIAX6k98z')
+        this.participants = funnelSpace.participants
       } catch (e) {
         console.error(e)
       }

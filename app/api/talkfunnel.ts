@@ -1,5 +1,5 @@
 import Space from '@/models/talkfunnel/Space'
-import {getJSON, HttpRequestOptions} from 'tns-core-modules/http'
+import {getJSON, getString, HttpRequestOptions} from 'tns-core-modules/http'
 import {path} from 'tns-core-modules/file-system'
 import {FunnelSpaceResponse, FunnelResponse} from '@/models/TalkFunnelAPI'
 import Participant from '@/models/Participant'
@@ -15,11 +15,14 @@ export default class TalkFunnelClient {
   }
 
   EVENT_BASE_URL: string
-  HEADERS: {Authorization: string}
+  HEADERS: {Authorization: string, 'Content-Type': string}
 
   constructor(eventFunnelUrl: string, authToken: string) {
     this.EVENT_BASE_URL = eventFunnelUrl
-    this.HEADERS = {Authorization: `Bearer ${authToken}`}
+    this.HEADERS = {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   }
 
   set eventUrl(eventUrl: string) {
@@ -40,7 +43,7 @@ export default class TalkFunnelClient {
       method: 'POST',
       url: path.join(this.EVENT_BASE_URL, TalkFunnelClient.PATH_PARTICIPANT),
       headers: this.HEADERS,
-      content: JSON.stringify({puk, key})
+      content: `puk=${puk}&key=${key}`
     }) as Participant
   }
 

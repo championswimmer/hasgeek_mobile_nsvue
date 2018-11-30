@@ -23,7 +23,7 @@
     @Prop() venue: TF.Venue
 
     openMap() {
-      openUrl(`maps://?q=${this.venue.title}, ${this.venue.city}`.split(' ').join('+'))
+      openUrl(`http://maps.google.com?q=${this.venue.title}, ${this.venue.city}`.split(' ').join('+'))
     }
   }
 

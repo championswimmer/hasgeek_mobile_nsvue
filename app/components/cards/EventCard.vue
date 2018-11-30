@@ -41,7 +41,7 @@ export default class EventCard extends Vue {
         toolbarColor: '#222222'
       })
     } else {
-      openUrl(`maps://?q=${this.event.city}`)
+      openUrl(`geo://?q=${this.event.city}`)
     }
   }
 }

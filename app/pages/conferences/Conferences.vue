@@ -1,7 +1,10 @@
 <template >
   <StackLayout xmlns="http://schemas.nativescript.org/tns.xsd">
     <PullToRefresh id="refresh" @refresh="reloadConferences">
-      <ListView id="conference-list" separatorColor="transparent" ref="confList" for="conference in conferences">
+      <ListView id="conference-list"
+                separatorColor="transparent"
+                ref="confList"
+                for="conference in conferences">
         <v-template>
           <ConferenceCard :conference="conference"></ConferenceCard>
         </v-template>

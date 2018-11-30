@@ -16,8 +16,8 @@
   "scripts": {
     "clean-run:android": "tns run android --bundle --clean",
     "clean-run:ios": "tns run ios --bundle --clean",
-    "run:android": "tns run android --bundle",
-    "run:ios": "tns run ios --bundle",
+    "start:android": "tns run android --bundle",
+    "start:ios": "tns run ios --bundle",
     "dev:android": "vue-devtools& tns run android --bundle",
     "dev:ios": "vue-devtools& tns run ios --bundle",
     "watch:android": "tns run android --bundle --hmr",

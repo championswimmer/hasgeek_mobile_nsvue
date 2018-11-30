@@ -4,6 +4,7 @@ import * as TF from '@/models/TalkFunnelAPI'
 import TalkFunnelClient from '@/api/talkfunnel'
 import store from '@/store'
 import userAuth from '@/store/modules/UserAuth'
+import Participant from '@/models/Participant'
 
 type DataState = 'loading' | 'loaded'
 
@@ -18,6 +19,7 @@ class TalkFunnelSpace extends VuexModule {
   venues: TF.Venue[] = []
   // rooms: TF.Room[] = []
   funnelUrl: string = ''
+  participants: Array<Participant> = []
 
   get currentSpace() { return this.space }
 
@@ -31,6 +33,11 @@ class TalkFunnelSpace extends VuexModule {
   @Mutation
   setVenues(venues: (TF.Venue)[]) {
     this.venues = venues
+  }
+
+  @Mutation
+  addParticipant (participant: Participant) {
+    this.participants.push(participant)
   }
 
   @Action
@@ -48,6 +55,16 @@ class TalkFunnelSpace extends VuexModule {
     this.setVenues(event.venues)
     Log.d('========== VENUES SAVED ==========')
     this.finishLoading()
+  }
+
+  @Action
+  async scanBadge(badgeCode: string) {
+    const client = new TalkFunnelClient(this.funnelUrl, userAuth.authToken)
+    const puk = badgeCode.substr(0,8)
+    const key = badgeCode.substr(8, 16)
+    const participant = await client.getParticipant(puk, key)
+    this.addParticipant(participant)
+    console.log(participant)
   }
 }
 
