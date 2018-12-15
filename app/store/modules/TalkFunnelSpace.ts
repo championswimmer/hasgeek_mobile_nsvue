@@ -64,10 +64,9 @@ class TalkFunnelSpace extends VuexModule {
     this.setSpace(await TF.Space.save(event.space))
     Log.d('========== SPACE SAVED ==========')
 
-    event.schedule.forEach(async (sched) => {
+    await event.schedule.forEach(async (sched) => {
       // Save each schedule
       sched.space = event.space
-      await TF.Schedule.save(sched)
 
       sched.slots.forEach(async (slot) => {
 
@@ -81,9 +80,12 @@ class TalkFunnelSpace extends VuexModule {
         })
         await TF.Session.save(slot.sessions)
       })
-
     })
-    Log.d('========== SCHEDULE SAVED ==========')
+    this.setSchedules(await TF.Schedule.find({
+      where: { space: this.space },
+      options: { eagerRelations: true },
+    }))
+    Log.w('========== SCHEDULE SAVED ==========')
 
     event.proposals.forEach((prop) => {
       prop.space = event.space
